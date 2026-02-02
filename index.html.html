@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Joalmi - Tienda Digital (Futurista Profesional)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+
+        :root {
+            --primary-color: #00bcd4; 
+            --secondary-color: #ff9800;
+            --background-dark: #121820; 
+            --card-background: #1f2733; 
+            --text-light: #e0e0e0; 
+            --shadow-elevated: 0 8px 25px rgba(0, 0, 0, 0.7);
+            --border-glow: 1px solid rgba(0, 188, 212, 0.5); 
+            --discount-color: #e91e63; 
+            --binance-color: #f0b90b; 
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: var(--background-dark); 
+            color: var(--text-light);
+            transition: background-color 0.3s;
+        }
+        
+        
+        @keyframes neon-pulse {
+            0%, 100% { 
+                text-shadow: 0 0 4px var(--primary-color), 0 0 15px var(--primary-color), 0 0 20px rgba(0, 188, 212, 0.5); 
+                transform: scale(1.0);
+            }
+            50% { 
+                text-shadow: 0 0 8px #fff, 0 0 30px var(--primary-color), 0 0 40px var(--primary-color);
+                transform: scale(1.02);
+            }
+        }
+
+      
+        header {
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), 
+                url('https://img.freepik.com/vector-premium/banner-encabezado-web-futurista-tecnologia-abstracta_88343-4797.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white; 
+            padding: 0; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            box-shadow: var(--shadow-elevated);
+            text-align: center;
+        }
+
+        .logo { display: none; }
+        
+        .header-content {
+            padding: 2em; 
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5em; 
+            margin: 20px 0 0.1em 0; 
+            letter-spacing: 5px;
+            color: gold; 
+            text-shadow: 0 0 15px rgba(255, 215, 0, 1), 0 0 5px rgba(0, 0, 0, 0.9);
+        }
+        
+        header p {
+            font-family: 'Poppins', sans-serif;
+            font-style: italic;
+            margin-top: 0.3em;
+            margin-bottom: 2em;
+            font-size: 1.8em; 
+            font-weight: 300;
+            color: var(--primary-color); 
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9); 
+            animation: neon-pulse 1.8s infinite alternate; /* Aplicación de la animación */
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000; 
+            width: 100%;
+            max-width: 100%; 
+            padding: 1em 2em;
+            color: white;
+            flex-wrap: wrap; 
+            position: relative; 
+            top: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            z-index: 5; 
+        }
+
+        #search-box {
+            padding: 10px 20px;
+            border: var(--border-glow);
+            border-radius: 25px; 
+            width: 280px;
+            font-size: 1em;
+            background-color: #2b2b2b; 
+            color: var(--primary-color);
+            box-shadow: 0 0 8px var(--primary-color); 
+            transition: width 0.3s, box-shadow 0.3s;
+        }
+        #search-box::placeholder {
+            color: rgba(0, 188, 212, 0.7);
+        }
+        #search-box:focus {
+            box-shadow: 0 0 15px var(--primary-color);
+            outline: none;
+            background-color: #333d47;
+        }
+        
+        .right-buttons {
+            display: flex;
+            gap: 15px; 
+            align-items: center;
+        }
+        
+        .top-bar button, .top-bar a.contact-button { 
+            background-color: #2b3340; 
+            color: var(--primary-color);
+            border: var(--border-glow);
+            padding: 0.7em 1.2em;
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: 600;
+            text-decoration: none; 
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s;
+            box-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+            white-space: nowrap; 
+        }
+
+        .top-bar button:hover, .top-bar a.contact-button:hover {
+            background-color: var(--primary-color);
+            color: var(--background-dark);
+            border-color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px var(--primary-color);
+        }
+        
+        nav {
+            background-color: #0d1218; 
+            padding: 1em;
+            display: flex;
+            justify-content: center;
+            gap: 1.5em;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+            border-bottom: 3px solid var(--primary-color);
+        }
+        nav button {
+            background: #2b3340;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 0.7em 1.4em;
+            border-radius: 5px; 
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+        }
+        nav button:hover {
+            background: var(--primary-color);
+            color: #121820;
+            transform: scale(1.05); 
+            box-shadow: 0 0 15px var(--primary-color);
+        }
+        
+  
+        section {
+            padding: 3em 2em;
+            background-color: var(--background-dark);
+        }
+        .category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 1em;
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.3em;
+            width: fit-content;
+            margin: 0 auto 1.5em auto;
+            text-shadow: 0 0 8px var(--primary-color);
+        }
+        
+        .product-container {
+            position: relative;
+            padding: 0 50px; 
+        }
+        
+        .scroll-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 188, 212, 0.15); 
+            color: var(--primary-color);
+            border: var(--border-glow);
+            padding: 10px;
+            cursor: pointer;
+            z-index: 50; 
+            font-size: 2em;
+            line-height: 0.5;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px var(--primary-color);
+            transition: all 0.3s;
+        }
+        .scroll-button:hover {
+            background: var(--primary-color);
+            color: var(--background-dark);
+            box-shadow: 0 0 20px var(--primary-color);
+        }
+        
+        .scroll-left { left: 0; }
+        .scroll-right { right: 0; }
+
+        .product-list {
+            display: flex;
+            gap: 1.5em;
+            overflow-x: scroll; 
+            scroll-behavior: smooth;
+            padding: 1em 0;
+            scrollbar-width: none; 
+            -ms-overflow-style: none; 
+            justify-content: flex-start; 
+            flex-wrap: nowrap; 
+            max-height: 450px; 
+            overflow-y: hidden;
+            transition: all 0.5s ease-in-out;
+            padding-left: 5px; 
+            padding-right: 5px;
+        }
+        .product-list::-webkit-scrollbar {
+            display: none; 
+        }
+        .product-list.full-view {
+            max-height: none !important;
+            justify-content: center; /* Centra los productos en la vista de cuadrícula */
+        }
+        
+        .product {
+            border: 1px solid #334455; 
+            background: var(--card-background); 
+            border-radius: 12px;
+            padding: 1em;
+            min-width: 220px; 
+            max-width: 220px;
+            min-height: 380px; 
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-shrink: 0; 
+            cursor: pointer; 
+            position: relative; 
+        }
+        .product:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 0 20px var(--primary-color); 
+            background: #253140;
+        }
+
+        .product-img-container {
+            position: relative;
+        }
+
+        .product img {
+            width: 100%;
+            height: 180px; 
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 0.8em;
+            border: 1px solid var(--primary-color); 
+            box-shadow: 0 0 5px var(--primary-color);
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: var(--discount-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 0.9em;
+            z-index: 10;
+            box-shadow: 0 0 5px var(--discount-color);
+        }
+        
+        .product-price {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0.5em 0 1em 0;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 0.8em;
+            margin-bottom: 0;
+        }
+
+        .current-price {
+            font-weight: 700;
+            color: var(--secondary-color);
+            font-size: 1.4em;
+            text-shadow: 0 0 5px #ff9800;
+            margin-top: 0;
+        }
+        
+
+        .product .actions {
+            margin-top: auto;
+            padding-top: 10px;
+        }
+
+        .add-cart {
+            background-color: var(--primary-color);
+            color: var(--background-dark);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%; 
+            margin-bottom: 5px;
+        }
+        .add-cart:hover {
+            background-color: #00e5ff;
+            box-shadow: 0 0 10px #00e5ff;
+        }
+        .add-favorite {
+            background-color: #334455;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            width: 100%; 
+            margin-top: 5px;
+        }
+        .add-favorite:hover {
+             background-color: #4a5d73;
+        }
+
+
+    
+        .category-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 2em;
+        }
+
+        .category-actions button {
+            background-color: var(--card-background);
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 5px var(--secondary-color);
+        }
+
+        .category-actions button:hover {
+            background-color: var(--secondary-color);
+            color: var(--background-dark);
+            box-shadow: 0 0 15px var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        /* --- 4. MODALES --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none; 
+            justify-content: center;
+            align-items: center;
+            z-index: 10000; 
+        }
+
+        .modal {
+            background: #1e2530; 
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 30px rgba(0, 188, 212, 0.8);
+            color: var(--text-light);
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 650px; 
+            max-height: 90vh;
+            overflow-y: auto;
+            z-index: 10001; 
+            display: none; 
+            transform: scale(0.9); 
+            opacity: 0;
+            transition: all 0.3s ease-out;
+            position: relative; 
+        }
+        
+        .modal.is-active {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        /* Modal de Promoción */
+        #promo-modal {
+            max-width: 450px;
+            border-color: var(--discount-color);
+            box-shadow: 0 0 30px rgba(233, 30, 99, 0.8);
+            text-align: center;
+        }
+        #promo-modal h2 {
+            color: var(--discount-color);
+            text-shadow: 0 0 5px var(--discount-color);
+        }
+        #promo-modal img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 2px solid var(--discount-color);
+        }
+        
+        /* Modal de Políticas */
+        .policy-modal {
+            max-width: 800px;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 30px rgba(255, 152, 0, 0.8);
+        }
+        .policy-modal h2 {
+            color: var(--secondary-color);
+        }
+        .policy-modal ul {
+            list-style: square;
+            margin-left: 20px;
+        }
+
+
+        .modal h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            text-shadow: 0 0 5px var(--primary-color);
+        }
+        .modal-actions {
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+ 
+        .modal input, .modal select, .modal textarea, .modal button:not(.close-button) {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #4a5d73;
+            border-radius: 8px;
+            background: #2b3340;
+            color: white;
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+        
+        .modal button:not(.close-button) {
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+     
+        #cart-items, #fav-items {
+            list-style: none;
+            padding: 0;
+        }
+        #cart-items li, #fav-items li {
+            border-bottom: 1px dashed #334455;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+     
+        .item-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .item-info img {
+            width: 40px; 
+            height: 40px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 1px solid var(--primary-color);
+        }
+
+
+    
+        #btn-contraentrega {
+            background-color: #4CAF50; /* Verde efectivo */
+            border: 2px solid #66bb6a;
+        }
+        #btn-contraentrega:hover {
+            background-color: #66bb6a;
+        }
+        
+   
+        #btn-paypal {
+            background-color: white; 
+            color: #00457C; /* Azul oscuro de PayPal */
+            border: 2px solid #009CDE; /* Azul claro de Acento */
+            font-weight: 700;
+            box-shadow: 0 0 5px rgba(0, 156, 222, 0.7);
+            border-radius: 5px; /* Estilo clásico de botón */
+            transition: all 0.3s;
+        }
+        #btn-paypal:hover {
+            background-color: #f0f0f0;
+            box-shadow: 0 0 10px #009CDE;
+            transform: translateY(-1px);
+        }
+
+    
+        #btn-binance {
+            background-color: var(--binance-color); 
+            color: #121820; 
+            border: 2px solid white;
+            font-weight: 700;
+            box-shadow: 0 0 10px var(--binance-color);
+        }
+        #btn-binance:hover {
+            background-color: #ffe082;
+            box-shadow: 0 0 15px #ffe082;
+            transform: translateY(-2px);
+        }
+        
+        #btn-tarjeta {
+            background-color: #3f51b5; 
+            color: white; 
+            border: 2px solid #7986cb;
+            font-weight: 700;
+            box-shadow: 0 0 5px rgba(63, 81, 181, 0.7);
+            border-radius: 5px; 
+            transition: all 0.3s;
+        }
+        #btn-tarjeta:hover {
+            background-color: #5c6bc0;
+            box-shadow: 0 0 10px #7986cb;
+            transform: translateY(-1px);
+        }
+
+
+     
+        .detail-header {
+            display: flex;
+            gap: 30px; 
+            margin-bottom: 20px;
+        }
+   
+        .detail-header img {
+            width: 50%; 
+            max-height: 350px; 
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .detail-info {
+            width: 50%;
+        }
+        .detail-price {
+            font-size: 1.8em;
+            color: var(--secondary-color);
+            margin-top: 5px;
+        }
+        .detail-price.has-discount {
+            font-size: 1.4em;
+            color: var(--discount-color);
+            font-weight: 700;
+        }
+
+        .detail-original-price {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 1em;
+            margin-top: -10px;
+            margin-bottom: 5px;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .quantity-selector label {
+            white-space: nowrap;
+        }
+        .quantity-selector input {
+            width: 70px;
+            padding: 8px;
+            text-align: center;
+            margin-bottom: 0;
+        }
+        
+        /* Selector de Color/Variación */
+        .color-selector label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        .color-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .color-option.selected {
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+        
+
+        #card-form-container {
+            padding: 20px;
+            background: #2b3340;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--secondary-color);
+        }
+
+        .card-group {
+            display: flex;
+            gap: 10px;
+        }
+        .card-group input {
+            width: 100%;
+        }
+
+
+
+        footer {
+            background-color: #0d1218;
+            color: #8899aa;
+            padding: 30px 20px;
+            border-top: 5px solid var(--primary-color);
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5);
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-section h4 {
+            color: var(--primary-color);
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li a {
+            color: #8899aa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+
+
+        @media (max-width: 768px) {
+            .detail-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .detail-header img, .detail-info {
+                width: 100%;
+            }
+        }
+        @media (max-width: 600px) {
+            header h1 { font-size: 3em; }
+            header p { font-size: 1.2em; }
+            .modal { max-width: 95%; }
+            .product-container { padding: 0 10px; }
+            .scroll-button { display: none; }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="modal-overlay" id="overlay" onclick="closeAllModals()"></div>
+
+    <header id="top">
+        <div class="top-bar">
+            <input type="text" id="search-box" placeholder="🔍 Busca productos, categorías..." onkeyup="filterProducts()">
+            <div class="right-buttons">
+                <a href="mailto:alejandromeme95@gmail.com?subject=Consulta%20de%20Servicio%20al%20Cliente%20Joalmi&body=Estimado%20equipo%20Joalmi%3A%0D%0A%0D%0A[Escriba%20su%20comentario%20aquí...]" class="contact-button">
+                    🎧 Servicio al Cliente
+                </a>
+                <button onclick="openCart()">🛒 Carrito (<span id="cart-count">0</span>)</button>
+                <button onclick="openFavorites()">⭐ Favoritos (<span id="fav-count">0</span>)</button>
+            </div>
+        </div>
+        <div class="header-content">
+            <h1>JOALMI</h1>
+            <p>Tu estilo, tu tienda, tu mundo</p> </div>
+    </header>
+
+    <nav>
+        <button onclick="openCategoryPage('ropa')">Ropa</button>
+        <button onclick="openCategoryPage('tecnologia')">Tecnología</button>
+        <button onclick="openCategoryPage('hogar')">Hogar</button>
+        <button onclick="openCategoryPage('accesorios')">Accesorios</button>
+        <button onclick="openCategoryPage('otros')">Otros</button>
+    </nav>
+
+    <section id="populares-main">
+        <div class="category-title">Productos Más Populares</div>
+        <p style="text-align: center; color: var(--secondary-color); font-style: italic;">Desliza para ver los 20 productos más vendidos.</p>
+        <div class="product-container">
+            <button class="scroll-button scroll-left" onclick="scrollCategory('populares', -1)">&#9664;</button>
+            <div class="product-list" id="populares-list"></div>
+            <button class="scroll-button scroll-right" onclick="scrollCategory('populares', 1)">&#9654;</button>
+        </div>
+    </section>
+
+    <section id="category-view-page" style="display: none;">
+        <div id="category-page-title" class="category-title"></div>
+        <div class="product-container">
+            <button class="scroll-button scroll-left" onclick="scrollCategory('dynamic', -1)">&#9664;</button>
+            <div class="product-list" id="dynamic-list"></div>
+            <button class="scroll-button scroll-right" onclick="scrollCategory('dynamic', 1)">&#9654;</button>
+        </div>
+        <div class="category-actions">
+            <button id="btn-view-dynamic" onclick="toggleView('dynamic')">Ver Todo</button>
+            <button onclick="showMainPage()">Volver a Populares</button>
+        </div>
+    </section>
+
+
+    <div class="modal" id="product-detail-modal">
+        <button onclick="closeAllModals()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 1.5em; cursor: pointer; color: white; z-index: 10002;">&times;</button>
+        <h2>Detalles del Producto</h2>
+        
+        <div class="detail-header">
+            <div class="product-img-container">
+                <img id="detail-img" src="" alt="Imagen del producto">
+                <div id="detail-discount-badge" class="discount-badge" style="display: none;"></div>
+            </div>
+            
+            <div class="detail-info">
+                <h3 id="detail-name" style="color: white; margin-top: 0;"></h3>
+                <div id="detail-original-price" class="detail-original-price" style="display: none;"></div>
+                <div id="detail-price" class="detail-price"></div>
+                
+                <p style="margin-top: 15px;">Rating: <span id="detail-rating"></span></p>
+                <p id="detail-description"></p>
+
+                <div class="color-selector" id="color-options-container" style="display: none;">
+                    <label>Color:</label>
+                    <div class="color-options" id="color-options">
+                        </div>
+                </div>
+
+                <div class="quantity-selector">
+                    <label for="detail-quantity">Cantidad:</label>
+                    <input type="number" id="detail-quantity" value="1" min="1" max="10">
+                </div>
+                
+                <div class="detail-actions">
+                    </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal" id="checkout-modal">
+        <button onclick="closeAllModals()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 1.5em; cursor: pointer; color: white; z-index: 10002;">&times;</button>
+        <div id="cart-view">
+            <h2>🛒 Resumen del Carrito</h2>
+            <ul id="cart-items"></ul>
+            <p style="font-size: 1.4em;">Total: $<span id="cart-total">0.00</span></p>
+            <div class="modal-actions" style="justify-content: space-between;">
+                <button onclick="closeAllModals()">Continuar Comprando</button>
+                <button class="add-cart" onclick="goToCheckout()">Proceder a la Compra</button>
+            </div>
+        </div>
+        
+        <div id="shipping-view" style="display: none;">
+            <h2>📝 Ingresa tus Datos de Envío</h2>
+            <form id="checkout-form" class="checkout-form">
+                <input type="text" id="nombre" placeholder="Nombre Completo" required>
+                <input type="email" id="email" placeholder="Correo Electrónico" required>
+                <select id="ciudad" required>
+                    <option value="" disabled selected>Seleccione su Ciudad (Ecuador)</option>
+                    <option value="Cuenca">Azuay - Cuenca</option>
+                        <option value="Paute">Azuay - Paute</option>
+                        <option value="Gualaceo">Azuay - Gualaceo</option>
+                        <option value="Guaranda">Bolívar - Guaranda</option>
+                        <option value="San Miguel">Bolívar - San Miguel</option>
+                        <option value="Azogues">Cañar - Azogues</option>
+                        <option value="La Troncal">Cañar - La Troncal</option>
+                        <option value="Tulcán">Carchi - Tulcán</option>
+                        <option value="Huaca">Carchi - Huaca</option>
+                        <option value="Riobamba">Chimborazo - Riobamba</option>
+                        <option value="Alausí">Chimborazo - Alausí</option>
+                        <option value="Latacunga">Cotopaxi - Latacunga</option>
+                        <option value="La Maná">Cotopaxi - La Maná</option>
+                        <option value="Machala">El Oro - Machala</option>
+                        <option value="Santa Rosa">El Oro - Santa Rosa</option>
+                        <option value="Pasaje">El Oro - Pasaje</option>
+                        <option value="Esmeraldas">Esmeraldas - Esmeraldas</option>
+                        <option value="Atacames">Esmeraldas - Atacames</option>
+                        <option value="Puerto Baquerizo Moreno">Galápagos - Puerto Baquerizo Moreno</option>
+                        <option value="Puerto Ayora">Galápagos - Puerto Ayora</option>
+                        <option value="Guayaquil">Guayas - Guayaquil</option>
+                        <option value="Durán">Guayas - Durán</option>
+                        <option value="Milagro">Guayas - Milagro</option>
+                        <option value="Samborondón">Guayas - Samborondón</option>
+                        <option value="Ibarra">Imbabura - Ibarra</option>
+                        <option value="Otavalo">Imbabura - Otavalo</option>
+                        <option value="Loja">Loja - Loja</option>
+                        <option value="Catamayo">Loja - Catamayo</option>
+                        <option value="Saraguro">Loja - Saraguro</option>
+                        <option value="Babahoyo">Los Ríos - Babahoyo</option>
+                        <option value="Quevedo">Los Ríos - Quevedo</option>
+                        <option value="Ventanas">Los Ríos - Ventanas</option>
+                        <option value="Portoviejo">Manabí - Portoviejo</option>
+                        <option value="Manta">Manabí - Manta</option>
+                        <option value="Chone">Manabí - Chone</option>
+                        <option value="Macas">Morona Santiago - Macas</option>
+                        <option value="Gualaquiza">Morona Santiago - Gualaquiza</option>
+                        <option value="Tena">Napo - Tena</option>
+                        <option value="Archidona">Napo - Archidona</option>
+                        <option value="Puerto Francisco de Orellana">Orellana - El Coca</option>
+                        <option value="Puyo">Pastaza - Puyo</option>
+                        <option value="Quito">Pichincha - Quito</option>
+                        <option value="Sangolquí">Pichincha - Sangolquí</option>
+                        <option value="Santa Elena">Santa Elena - Santa Elena</option>
+                        <option value="La Libertad">Santa Elena - La Libertad</option>
+                        <option value="Santo Domingo">Santo Domingo de los Tsáchilas - Santo Domingo</option>
+                        <option value="Nueva Loja">Sucumbíos - Nueva Loja (Lago Agrio)</option>
+                        <option value="Ambato">Tungurahua - Ambato</option>
+                        <option value="Baños de Agua Santa">Tungurahua - Baños</option>
+                        <option value="Zamora">Zamora Chinchipe - Zamora</option>
+                        <option value="Yantzaza">Zamora Chinchipe - Yantzaza</option>
+                        <option value="Otros">Otra ciudad / Lugar rural...</option>
+                </select>
+                <input type="text" id="calle-principal" placeholder="Calle Principal / Número de casa" required>
+                <input type="text" id="calle-secundaria" placeholder="Calle Secundaria / Referencia">
+                <input type="tel" id="telefono" placeholder="Teléfono" required>
+                <div class="navigation-buttons" style="display: flex; justify-content: space-between; margin-top: 15px;">
+                    <button type="button" onclick="showView('cart-view')">← Volver al Carrito</button>
+                    <button type="button" onclick="goToPayment()">Continuar al Pago →</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="payment-view" style="display: none;">
+            <h2>💳 Selecciona tu Método de Pago</h2>
+            <p style="font-size: 1.4em; text-align: center;">Total a Pagar: $<span id="payment-total">0.00</span></p>
+            
+            <button id="btn-contraentrega" onclick="processOrder('contra-entrega')">💵 Pagar Contra Entrega</button>
+            <button id="btn-paypal" onclick="showCardForm('paypal')">💳 Pagar con PayPal</button>
+            <button id="btn-binance" onclick="processOrder('binance')">💰 Pagar con Binance USDT</button>
+            <button id="btn-tarjeta" onclick="showCardForm('tarjeta')">💳 Pagar con Tarjeta (Crédito/Débito)</button>
+            
+            <div id="card-form-container" style="display: none;">
+                <h4 style="color: var(--secondary-color);">Detalles de la Tarjeta</h4>
+                <input type="text" id="card-number" placeholder="Número de Tarjeta" maxlength="16" required>
+                <div class="card-group">
+                    <input type="text" id="card-expiry" placeholder="MM/AA" maxlength="5" required>
+                    <input type="text" id="card-cvv" placeholder="CVV" maxlength="4" required>
+                </div>
+                <input type="text" id="card-name" placeholder="Nombre en la Tarjeta" required>
+                <button class="add-cart" onclick="processOrder(paymentMethodSelected)">Pagar $<span id="card-total-display">0.00</span> Ahora</button>
+            </div>
+            
+            <div class="navigation-buttons" style="margin-top: 20px;">
+                <button type="button" onclick="showView('shipping-view')">← Volver a Datos de Envío</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="fav-modal">
+        <button onclick="closeAllModals()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 1.5em; cursor: pointer; color: white; z-index: 10002;">&times;</button>
+        <h2>⭐ Mis Productos Favoritos</h2>
+        <ul id="fav-items"></ul>
+        <div class="modal-actions">
+            <button onclick="closeAllModals()">Cerrar</button>
+        </div>
+    </div>
+    
+    <div class="modal" id="confirmation-modal">
+        <button onclick="closeAllModals()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 1.5em; cursor: pointer; color: white; z-index: 10002;">&times;</button>
+        <h2>✅ ¡Orden Confirmada!</h2>
+        <p>Tu orden ha sido procesada exitosamente. Aquí están los detalles:</p>
+        <p><strong>Número de Orden:</strong> <span id="order-id"></span></p>
+        <p><strong>Total Pagado:</strong> $<span id="final-total"></span></p>
+        <p><strong>Método de Pago:</strong> <span id="final-method"></span></p>
+        <p><strong>Dirección de Envío:</strong> <span id="final-address"></span></p>
+        <p style="margin-top: 20px; color: var(--primary-color);">Recibirás una confirmación por correo electrónico en breve.</p>
+        <div class="modal-actions">
+            <button onclick="closeAllModals()">Aceptar</button>
+        </div>
+    </div>
+
+    <div class="modal" id="promo-modal">
+        <button onclick="closeAllModals()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 1.5em; cursor: pointer; color: white; z-index: 10002;">&times;</button>
+        <h2>🎉 ¡OFERTA FLASH!</h2>
+        <p>Solo por hoy, obtén un descuento increíble en:</p>
+        <img id="promo-img" src="" alt="Producto en promoción">
+        <h3 id="promo-name" style="color: white;"></h3>
+        <p style="font-size: 1.5em; font-weight: 700; color: var(--discount-color);"><span id="promo-discount"></span></p>
+        <button class="add-cart" onclick="closeAllModals(); openProductDetail(productSelected.id)">Ver Producto</button>
+        <div class="modal-actions">
+            <button onclick="closeAllModals()">Cerrar</button>
+        </div>
+    </div>
+
+    <div class="modal policy-modal" id="faq-modal">
+        <button onclick="closeAllModals()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 1.5em; cursor: pointer; color: white;">&times;</button>
+        <h2>❓ Preguntas Frecuentes (FAQ)</h2>
+        <h4>¿Cuánto tiempo tarda el envío?</h4>
+        <p>El tiempo de envío estándar dentro de Ecuador es de **3 a 5 días laborables**.</p>
+        <h4>¿Cómo puedo rastrear mi pedido?</h4>
+        <p>Una vez enviado, recibirás un correo electrónico con un número de seguimiento y un enlace al portal de la transportadora.</p>
+        <h4>¿Qué hago si mi producto llega dañado?</h4>
+        <p>Contáctanos inmediatamente (en las primeras 48 horas) con fotos del daño. Procesaremos una devolución o reemplazo sin costo adicional.</p>
+        <div class="modal-actions"><button onclick="closeAllModals()">Entendido</button></div>
+    </div>
+    
+    <div class="modal policy-modal" id="devoluciones-modal">
+        <button onclick="closeAllModals()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 1.5em; cursor: pointer; color: white;">&times;</button>
+        <h2>📦 Política de Devoluciones y Garantías</h2>
+        <p>En Joalmi, nos aseguramos de que cada compra cumpla con tus expectativas. Si no estás satisfecho, tienes **30 días** para devolver tu producto, siempre y cuando cumpla con las siguientes condiciones:</p>
+        <ul>
+            <li>El producto debe estar sin usar, en el mismo estado en que lo recibiste y en su embalaje original.</li>
+            <li>Se requiere el recibo o prueba de compra.</li>
+            <li>Los artículos de liquidación o con descuento final no son elegibles para devolución.</li>
+            <li>La garantía cubre defectos de fabricación por **90 días** desde la fecha de compra.</li>
+        </ul>
+        <div class="modal-actions"><button onclick="closeAllModals()">Entendido</button></div>
+    </div>
+    
+    <div class="modal policy-modal" id="terminos-modal">
+        <button onclick="closeAllModals()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 1.5em; cursor: pointer; color: white;">&times;</button>
+        <h2>📜 Términos y Condiciones de Uso</h2>
+        <p>Al utilizar nuestra plataforma, aceptas:</p>
+        <ol>
+            <li>Ser mayor de edad o contar con la supervisión de un tutor legal para realizar compras.</li>
+            <li>Proporcionar información de envío y pago veraz y completa.</li>
+            <li>Los precios están sujetos a cambios sin previo aviso, aunque respetaremos el precio de tu orden ya confirmada.</li>
+            <li>Nos reservamos el derecho de rechazar o cancelar cualquier pedido a nuestra discreción.</li>
+        </ol>
+        <div class="modal-actions"><button onclick="closeAllModals()">Entendido</button></div>
+    </div>
+    
+    <div class="modal policy-modal" id="privacidad-modal">
+        <button onclick="closeAllModals()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 1.5em; cursor: pointer; color: white;">&times;</button>
+        <h2>🔒 Política de Privacidad</h2>
+        <p>Respetamos tu privacidad y estamos comprometidos a protegerla. Esta política describe cómo manejamos tu información personal:</p>
+        <ul>
+            <li>**Recolección de Datos:** Recopilamos información necesaria para procesar pedidos (nombre, dirección, email, teléfono).</li>
+            <li>**Uso:** Utilizamos tus datos solo para el envío de productos, la gestión de la cuenta y el envío de comunicaciones promocionales (si has dado tu consentimiento).</li>
+            <li>**Seguridad:** Implementamos medidas de seguridad para proteger contra el acceso no autorizado.</li>
+            <li>**Terceros:** No compartimos tus datos con terceros, excepto con las empresas de envío (transportadoras) para la entrega de tu pedido.</li>
+        </ul>
+        <div class="modal-actions"><button onclick="closeAllModals()">Entendido</button></div>
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Joalmi Digital</h4>
+                <p>Tu tienda de confianza con estilo futurista. Entregas en todo Ecuador.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Atención al Cliente</h4>
+                <ul>
+                    <li><a href="#" onclick="openModal('faq-modal'); return false;">Preguntas Frecuentes (FAQ)</a></li>
+                    <li><a href="#" onclick="openModal('devoluciones-modal'); return false;">Devoluciones y Garantías</a></li>
+                    <li><a href="mailto:alejandromeme95@gmail.com" target="_blank">Contáctanos (Email)</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Información Legal</h4>
+                <ul>
+                    <li><a href="#" onclick="openModal('terminos-modal'); return false;">Términos y Condiciones de Uso</a></li>
+                    <li><a href="#" onclick="openModal('privacidad-modal'); return false;">Política de Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Joalmi. Todos los derechos reservados. Desarrollado con 💙 en Ecuador.
+        </div>
+    </footer>
+    
+    <script>
+        // --- BASE DE DATOS Y LÓGICA (CON DESCUENTOS Y COLORES) ---
+        const productsData = {
+            ropa: [
+                { id: 101, name: "Camiseta Deportiva Elite", price: 15.00, originalPrice: 20.00, discount: "25% OFF", img: "https://s.alicdn.com/@sc04/kf/H661e61bf753245299127a10ebe313f3fN.jpg", description: "Camiseta técnica de secado rápido, ideal para entrenamiento intenso.", rating: 4.5, category: 'ropa', colors: ['#00bcd4', '#e91e63', '#4CAF50'] },
+                { id: 102, name: "Jeans Slim Fit Clásico", price: 45.00, img: "https://lee.com.ec/wp-content/uploads/SLIM.jpg", description: "Jeans de corte slim fit, mezcla de algodón y elastano para máxima comodidad.", rating: 4.2, category: 'ropa' },
+                { id: 103, name: "Chaqueta Cortavientos Neo", price: 55.00, originalPrice: 70.00, discount: "21% OFF", img: "https://www.izas-outdoor.com/cdn/shop/files/c8f780f2eb7d9b466605e4922bbd8803.jpg?v=1711569737&width=1920", description: "Resistente al agua y al viento. Ideal para running y uso casual.", rating: 4.6, category: 'ropa', colors: ['#000000', '#f5f5f5'] },
+                { id: 104, name: "Zapatos de Cuero Formal", price: 75.00, img: "https://m.media-amazon.com/images/I/71EkzI8TXiL.jpg", description: "Zapato formal de cuero genuino, suela antideslizante.", rating: 4.0, category: 'ropa' },
+                { id: 105, name: "Vestido de Noche Glamour", price: 90.00, originalPrice: 120.00, discount: "25% OFF", img: "https://img-1.kwcdn.com/thumbnail/s/3ebd79b3c1a7a303f01e07fcf8d9fae1_c81428a1b4b7.jpg?imageView2/2/w/1300/q/80/format/avif", description: "Vestido largo de fiesta, con detalles de lentejuelas.", rating: 4.9, category: 'ropa', colors: ['#9c27b0', '#e91e63'] },
+                { id: 106, name: "Pantalón Casual Lino", price: 35.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQswZOw0JR881DBz56HePfuBn_aZSfByVYc5Q&s", description: "Pantalón fresco de lino para verano, corte recto y cintura elástica.", rating: 4.0, category: 'ropa' },
+                { id: 107, name: "Sudadera con Capucha Premium", price: 40.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjqCAU8MVSvApwHTAudqbWtazDEENRr-likA&s", description: "Algodón de alta densidad, interior afelpado para máximo confort.", rating: 4.7, category: 'ropa' },
+                { id: 108, name: "Traje de Baño Bikini Deportivo", price: 28.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQggdI5FtecexaL_9vTGiQuJi2TUsKEoacyQQ&s", description: "Traje de baño de dos piezas con protección UV. Diseño moderno y secado rápido.", rating: 3.9, category: 'ropa' },
+                { id: 109, name: "Calcetines Pack x5 Deportivos", price: 7.50, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8uRuR1JpgZ2vj1teqeQUDppMXALSqvSQc3w&s", description: "Pack de 5 pares de calcetines deportivos, con soporte para arco y acolchado en talón.", rating: 4.5, category: 'ropa' },
+                { id: 110, name: "Falda Plisada Vintage", price: 30.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjwPHgwOHW5iyq-BI_rVEp25zY4GB5lSquXA&s", description: "Falda midi con pliegues, estilo vintage. Cierre de cremallera invisible.", rating: 4.1, category: 'ropa' },
+                { id: 111, name: "Camisa de Franela Escocesa", price: 38.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjwge1cJlsJjMCXjohMF4EqaiBPUtUqMZwNA&s", description: "Camisa de franela de algodón suave, ideal para clima frío. Diseño escocés clásico.", rating: 4.3, category: 'ropa' },
+                { id: 112, name: "Blusa de Seda Elegante", price: 42.00, originalPrice: 50.00, discount: "16% OFF", img: "https://m.media-amazon.com/images/I/71SzTiHKoXL._AC_UY1000_.jpg", description: "Blusa de seda con cuello en V, perfecta para la oficina o eventos nocturnos.", rating: 4.6, category: 'ropa', colors: ['#f5f5f5', '#000000'] },
+                { id: 113, name: "Short Deportivo Ciclismo", price: 18.00, img: "https://leonisa.ec/cdn/shop/files/195609_700_1200X1500_2_480x.jpg?v=1759349649", description: "Short de licra con badana de gel, ideal para largas rutas en bicicleta.", rating: 4.4, category: 'ropa' },
+                { id: 114, name: "Bufanda de Lana Cachemira", price: 25.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpbjCN_NNKIosKMaPKGjr8XVHFskiodBLqaA&s", description: "Bufanda de lana de cachemira, muy suave y cálida.", rating: 4.7, category: 'ropa' },
+                { id: 115, name: "Gabardina Clásica", price: 85.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgJIbVywvmwoBeQemi6OcpBXs6eCaGb5xsXw&s", description: "Gabardina de corte clásico, doble botonadura y cinturón ajustable.", rating: 4.8, category: 'ropa' },
+                { id: 116, name: "Botines Chelsea de Ante", price: 65.00, originalPrice: 80.00, discount: "19% OFF", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9-epAlbk5WGsNccq5zJJuhZ3GVIU9r9D2eA&s", description: "Botines estilo Chelsea de ante sintético, cómodos y elegantes.", rating: 4.2, category: 'ropa' },
+                { id: 117, name: "Camiseta Oversize Gráfica", price: 22.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrbgfPclbkhZG_s50sV9mGBIP2v-Z1NmfnQA&s", description: "Camiseta de algodón con diseño gráfico moderno y corte oversize.", rating: 4.5, category: 'ropa' },
+                { id: 118, name: "Cárdigan Largo Tejido", price: 50.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwFUZEkKWgwRm-dTcZWRDrUAYj2Md2tkYOLQ&s", description: "Cárdigan largo de punto grueso, ideal para capas en invierno.", rating: 4.3, category: 'ropa' },
+                { id: 119, name: "Mochila de Viaje Impermeable", price: 40.00, originalPrice: 48.00, discount: "17% OFF", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw666P4YvxXsPNjIQ-tlyMQz6h1ZwyO1nrhA&s", description: "Mochila con múltiples compartimentos, ideal para senderismo o viajes. Tallas S-XL.", rating: 4.6, category: 'ropa' },
+                { id: 120, name: "Vestido Midi Cruzado", price: 48.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq5Z-UKZQn2VM-u9YbwE8L0kjOfQTej54WUg&s", description: "Vestido midi de manga larga con diseño cruzado en la cintura.", rating: 4.5, category: 'ropa' },
+                { id: 121, name: "Pijama de Satén Lujoso", price: 40.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsxm4tn7vA9bm9VRV_qvaIRH1oP5__6HGNQg&s", description: "Set de pijama de dos piezas en satén suave. Lujoso y cómodo.", rating: 4.7, category: 'ropa' },
+                { id: 122, name: "Tenis Running Transpirables", price: 60.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhtoqZ2-hb-0ewMDc7Lq-pryRr5my_5qrbMw&s", description: "Tenis ligeros con malla transpirable y suela de amortiguación avanzada.", rating: 4.8, category: 'ropa' },
+                { id: 123, name: "Gorra de Béisbol Ajustable", price: 12.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKL4PUnOYqk8GO5lEebWQHm9SPZ8EEzkEmtw&s", description: "Gorra de béisbol clásica con cierre ajustable.", rating: 4.1, category: 'ropa' },
+                { id: 124, name: "Bóxer de Algodón x3", price: 15.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcVvduDGvO-sOOB8QsQTp2yqe-KqCQZS0TcQ&s", description: "Pack de 3 bóxers de algodón, máxima suavidad y elasticidad.", rating: 4.5, category: 'ropa' },
+                { id: 125, name: "Medias de Compresión", price: 10.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc84sRIzfl0_FdvzdcYPrSJXqeOi_cZh5Qhw&s", description: "Medias de compresión para deportes o viajes largos. Mejoran la circulación.", rating: 4.6, category: 'ropa' }
+            ],
+            tecnologia: [
+                { id: 201, name: "Laptop Ultrabook X1 (16GB RAM)", price: 799.00, originalPrice: 999.00, discount: "20% OFF", img: "https://i0.wp.com/cemco.com.ec/wp-content/uploads/2025/10/thinkpad-x1-carbon-g12-21kc00c3lm-frontal-14-wuxga-ips-400nits-low-power-ultra7-155u-32gb-lpddr5x-1tb-pcie4-win11-pro-dual-tb4-1kg.webp?fit=600%2C600&ssl=1", description: "Portátil ultradelgado con procesador i7 de última generación. Ideal para trabajo y diseño.", rating: 4.7, category: 'tecnologia' },
+                { id: 202, name: "Audífonos Inalámbricos Pro", price: 59.99, img: "https://elbarbaro.ec/wp-content/uploads/2020/07/640x640-AIRPODS-PRO.jpg", description: "Cancelación de ruido activa, 30 horas de reproducción y estuche de carga rápida.", rating: 4.5, category: 'tecnologia', colors: ['#000000', '#f5f5f5', '#00bcd4'] },
+                { id: 203, name: "Smartwatch Deportivo V3", price: 89.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPmk1rROWC_yutW3s_yOe8UIF3P4wcGJDDGw&s", description: "Monitor de ritmo cardíaco, GPS integrado y resistencia al agua 5 ATM.", rating: 4.3, category: 'tecnologia' },
+                { id: 204, name: "Teclado Mecánico RGB", price: 75.00, img: "https://m.media-amazon.com/images/I/71KBeJ1nz6L._AC_SL1500_.jpg", description: "Teclado mecánico con switches táctiles y retroiluminación RGB personalizable.", rating: 4.8, category: 'tecnologia' },
+                { id: 205, name: "Webcam 4K con Autoenfoque", price: 45.00, originalPrice: 60.00, discount: "25% OFF", img: "https://img.kentfaith.de/cache/catalog/products/de/GW41.0137/GW41.0137-1-518x518.jpg", description: "Cámara web de ultra alta definición con micrófono estéreo y corrección de luz automática.", rating: 4.6, category: 'tecnologia' },
+                { id: 206, name: "Router WiFi 6 Mesh", price: 120.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpMJ49rr_5EW9LFbiA5lrS02CUwfIsRzWg9Q&s", description: "Sistema Mesh de doble banda, cobertura de hasta 400m², ideal para casas grandes.", rating: 4.9, category: 'tecnologia' },
+                { id: 207, name: "Disco Duro Externo 2TB USB 3.0", price: 65.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToPVTCA_rkfmhWICJOuI_ECEq6OKFBJ7BhjA&s", description: "Almacenamiento portátil rápido y seguro para respaldos y archivos grandes.", rating: 4.5, category: 'tecnologia' },
+                { id: 208, name: "Batería Externa 20000mAh", price: 35.00, img: "https://http2.mlstatic.com/D_NQ_NP_744519-MLM49689834953_042022-O.webp", description: "Carga rápida Power Delivery, puede recargar un teléfono hasta 4 veces.", rating: 4.4, category: 'tecnologia' },
+                { id: 209, name: "Lápiz Óptico Profesional", price: 29.99, img: "https://lavictoria.ec/wp-content/uploads/2024/01/LAPIZ-OPTICO-STYLUS-01-02-069-NITRON-2-jpg.webp", description: "Compatible con tabletas y smartphones, perfecto para dibujo y notas.", rating: 4.7, category: 'tecnologia' },
+                { id: 210, name: "Mini Proyector HDMI", price: 99.00, originalPrice: 130.00, discount: "24% OFF", img: "https://m.media-amazon.com/images/I/618klqnYCGL._AC_SL1500_.jpg", description: "Portátil, proyecta hasta 100 pulgadas. Incluye altavoz y conexión HDMI/USB.", rating: 4.2, category: 'tecnologia' },
+                { id: 211, name: "Mouse Vertical Ergonómico", price: 25.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVqV8QvsuVW4yjrztjSW5cwBwaed3hMyofRA&s", description: "Diseño ergonómico para reducir la tensión en la muñeca, ideal para largas jornadas.", rating: 4.6, category: 'tecnologia' },
+                { id: 212, name: "Tira LED RGB Inteligente (5m)", price: 19.99, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT68g3siqnWpPUh7AhKMkgfNwekCHJ3jKcr2g&s", description: "Controlable por App o voz, perfecta para ambientar cualquier espacio.", rating: 4.3, category: 'tecnologia' },
+                { id: 213, name: "Monitor Curvo 27' (144Hz)", price: 250.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJvhUCxKXCB_FCwLRisR_yn4T2WhMfm3V4Sg&s", description: "Monitor gaming con baja latencia y colores vibrantes. Conexiones HDMI y DisplayPort.", rating: 4.8, category: 'tecnologia' },
+                { id: 214, name: "Estación de Carga Inalámbrica 3 en 1", price: 49.00, originalPrice: 65.00, discount: "25% OFF", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb_kKnXBqEBjTMbx-BBJkZ97EcTwqFFiMrzA&s", description: "Carga simultánea para teléfono, reloj y audífonos. Diseño elegante.", rating: 4.7, category: 'tecnologia' },
+                { id: 215, name: "Bombillo Inteligente RGB", price: 15.00, originalPrice: 18.00, discount: "17% OFF", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkOA0eav-PdZ0zcaVnD-CxEfp8BGb7S3z3Hg&s", description: "Bombillo LED con millones de colores, programable y controlable por Wi-Fi.", rating: 4.5, category: 'tecnologia', colors: ['#f0f0f0'] },
+                { id: 216, name: "Cámara de Seguridad Exterior HD", price: 70.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-Hv9XDWqxZ9Mk_lQwKjGN87S6PLeg8ZtTxg&s", description: "Visión nocturna, detección de movimiento y almacenamiento en la nube.", rating: 4.4, category: 'tecnologia' },
+                { id: 217, name: "Tablet de 10 Pulgadas (4GB RAM)", price: 150.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcqDtqGnSpB1Ucz375sjVFXLl7NkbQM0BgMA&s", description: "Ideal para consumo de medios y tareas escolares. Batería de larga duración.", rating: 4.1, category: 'tecnologia' },
+                { id: 218, name: "Cable USB-C a Lightning Reforzado (2m)", price: 12.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoLytEEwh2lHE-V6GLBZmL-OKTSNbxpG7Wjg&s", description: "Cable con trenzado de nailon, resistente a más de 10,000 dobleces.", rating: 4.9, category: 'tecnologia' },
+                { id: 219, name: "Controlador de Juego Bluetooth", price: 39.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxzou1DT46Ox8_XE_pjQtuS80yBz8N7-2DJQ&s", description: "Compatible con PC, Android e iOS. Batería de 10 horas de juego.", rating: 4.6, category: 'tecnologia' },
+                { id: 220, name: "Impresora Láser Monocromática", price: 110.00, originalPrice: 140.00, discount: "21% OFF", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa5s08trwYRCI9qRIZoHs_KKjcZMl7PPpJWg&s", description: "Impresora rápida y económica para alto volumen de documentos.", rating: 4.5, category: 'tecnologia' },
+                { id: 221, name: "Micrófono Condensador USB", price: 55.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT35Njs3DTqqdoRh8rcTRGkGfyFtpgEFpiJpw&s", description: "Ideal para streaming, podcasting y grabaciones de voz. Plug and Play.", rating: 4.7, category: 'tecnologia' },
+                { id: 222, name: "Tarjeta de Memoria MicroSD 128GB", price: 20.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJq1C6_NjoWHdFEWGKJMgsKnc9PzBG1EjhZA&s", description: "Velocidad de lectura de 100MB/s, clase 10. Perfecta para cámaras y drones.", rating: 4.8, category: 'tecnologia' },
+                { id: 223, name: "Mini Altavoz Portátil Bluetooth", price: 29.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2PkAZiRwsEbPjjKRZaO5mg6pyLy2yckJLgw&s", description: "Resistente al agua (IPX7), sonido potente y 12 horas de batería.", rating: 4.6, category: 'tecnologia' },
+                { id: 224, name: "Hub USB-C 7 en 1", price: 30.00, img: "https://http2.mlstatic.com/D_NQ_NP_632171-MEC54899025354_042023-O.webp", description: "Adaptador con HDMI, 3 USB 3.0, SD/TF y PD. Diseño compacto de aluminio.", rating: 4.5, category: 'tecnologia' },
+                { id: 225, name: "Gafas de Realidad Virtual (VR)", price: 80.00, originalPrice: 100.00, discount: "20% OFF", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWLdJe0M3AQWhCof7Ki02Uzqw39PIbBLAMew&s", description: "Compatibles con la mayoría de smartphones. Lentes ajustables para mayor comodidad.", rating: 4.2, category: 'tecnologia' }
+            ],
+            hogar: [
+                { id: 301, name: "Robot Aspirador Inteligente", price: 199.00, originalPrice: 250.00, discount: "20% OFF", img: "https://png.pngtree.com/png-vector/20240628/ourmid/pngtree-smart-house-vacuum-cleaner-robot-runs-on-wood-floor-in-a-png-image_12899278.png", description: "Programable por App, mapeo láser y compatible con asistentes de voz.", rating: 4.7, category: 'hogar' },
+                { id: 302, name: "Cafetera Expresso Automática", price: 150.00, img: "https://png.pngtree.com/png-clipart/20240204/original/pngtree-automatic-espresso-machine-coffee-photo-png-image_14230723.png", description: "Prepara café expresso, capuchino y latte con solo tocar un botón.", rating: 4.5, category: 'hogar' },
+                { id: 303, name: "Juego de Sábanas de Bambú (King)", price: 55.00, img: "https://gokottalifestyle.com/cdn/shop/files/300-thread-luxury-bamboo-sheets-set-deep-pocket-2788480_1800x1800.png?v=1760687122", description: "Sábanas hipoalergénicas, extra suaves y termorreguladoras.", rating: 4.8, category: 'hogar' },
+                { id: 304, name: "Purificador de Aire Hepa", price: 79.00, originalPrice: 100.00, discount: "21% OFF", img: "https://png.pngtree.com/png-vector/20240730/ourmid/pngtree-top-rated-air-purifiers-for-home-use-innovative-allergy-relief-isolated-png-image_13299144.png", description: "Filtra el 99.97% de partículas pequeñas, incluyendo polvo y alérgenos.", rating: 4.6, category: 'hogar' },
+                { id: 305, name: "Licuadora de Alta Potencia", price: 60.00, img: "https://xpc.com.ec/clientes/wp-content/uploads/LICELEPN916RD-1.png", description: "Motor de 1000W, ideal para smoothies, sopas y hielo triturado.", rating: 4.3, category: 'hogar' },
+                { id: 306, name: "Set de Cuchillos de Chef (7 piezas)", price: 45.00, img: "https://montero.ec/media/catalog/product/cache/d7b9b3e3077561ca75df95ce4e94f3d7/G/A/GAS0403030021161_1_1.png", description: "Acero inoxidable alemán, mango ergonómico. Incluye estuche de madera.", rating: 4.9, category: 'hogar' },
+                { id: 307, name: "Manta de Piel Sintética (Extra Suave)", price: 35.00, originalPrice: 45.00, discount: "22% OFF", img: "https://m.media-amazon.com/images/I/81pyMYqX-8L.jpg", description: "Manta de lujo para el sofá o la cama, muy cálida y acogedora.", rating: 4.7, category: 'hogar' },
+                { id: 308, name: "Termo de Acero Inoxidable (1L)", price: 18.00, img: "https://png.pngtree.com/png-clipart/20250108/original/pngtree-a-stainless-steel-thermos-with-matte-finish-png-image_20108897.png", description: "Mantiene bebidas calientes por 12h y frías por 24h. Tapa que sirve de taza.", rating: 4.5, category: 'hogar' },
+                { id: 309, name: "Abrebotellas Eléctrico de Vino", price: 25.00, img: "https://i5.walmartimages.com/asr/66a1e98f-c660-4cdc-aa3e-a4d8c4373389.0061723f3d8b9afe9993742c384093ce.png?odnHeight=612&odnWidth=612&odnBg=FFFFFF", description: "Descorcha botellas en segundos. Incluye cortador de sellos.", rating: 4.2, category: 'hogar' },
+                { id: 310, name: "Vela Aromática de Lavanda", price: 10.00, img: "https://png.pngtree.com/png-clipart/20250415/original/pngtree-a-glass-jar-filled-with-scented-candles-and-few-sprigs-of-png-image_20689964.png", description: "Cera de soja natural, aroma relajante de lavanda, 50 horas de quema.", rating: 4.6, category: 'hogar' },
+                { id: 311, name: "Batidora de Mano con Accesorios", price: 30.00, img: "https://montero.ec/media/catalog/product/cache/d7b9b3e3077561ca75df95ce4e94f3d7/G/A/GAS0804010019966_2_1.png", description: "Motor potente con 5 velocidades y función turbo. Incluye ganchos para amasar.", rating: 4.4, category: 'hogar' },
+                { id: 312, name: "Set de Toallas de Algodón Egipcio x4", price: 40.00, originalPrice: 50.00, discount: "20% OFF", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3PIyougwvZsLn0Bh1Lz-TtQnTMe1_4Ktuwg&s", description: "Máxima absorción y suavidad. Incluye 2 toallas de baño y 2 de mano.", rating: 4.9, category: 'hogar' },
+                { id: 313, name: "Reloj de Pared Digital Grande", price: 25.00, img: "https://velascostore.com/36943-thickbox_default/reloj-digital-de-pared-con-fechatemperatura.jpg", description: "Números grandes, visible a distancia. Incluye temperatura y humedad.", rating: 4.3, category: 'hogar' },
+                { id: 314, name: "Báscula Digital de Cocina", price: 15.00, img: "https://kywiec.vtexassets.com/arquivos/ids/205810/500136.jpg?v=638653049063300000", description: "Precisión de 1g, función Tara. Pantalla LCD retroiluminada.", rating: 4.7, category: 'hogar' },
+                { id: 315, name: "Escobillón y Recogedor de Diseño", price: 20.00, originalPrice: 25.00, discount: "20% OFF", img: "https://kywiec.vtexassets.com/arquivos/ids/188625-800-auto?v=638388722341230000&width=800&height=auto&aspect=true", description: "Diseño moderno y minimalista, cerdas duraderas y recogedor con borde de goma.", rating: 4.5, category: 'hogar' },
+                { id: 316, name: "Difusor de Aromas Ultrasónico", price: 22.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqOePBlecYB_TkkMluugA_tJ62RLRDC7SPDw&s", description: "Capacidad de 300ml, luz LED de 7 colores y apagado automático.", rating: 4.6, category: 'hogar' },
+                { id: 317, name: "Cortinas Opacas Térmicas (Par)", price: 45.00, img: "https://m.media-amazon.com/images/I/71DLJoxf9AL._AC_UF894,1000_QL80_.jpg", description: "Bloquean el 99% de la luz y aíslan el ruido. Conservan la temperatura.", rating: 4.8, category: 'hogar' },
+                { id: 318, name: "Organizador de Nevera Acrílico (Set x4)", price: 35.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcCrueXKNo8j7dcpwijFJ9Ki52cyPchOKMHw&s", description: "Ayuda a maximizar el espacio y mantener los alimentos visibles.", rating: 4.4, category: 'hogar' },
+                { id: 319, name: "Lámpara de Escritorio LED con Carga USB", price: 30.00, originalPrice: 40.00, discount: "25% OFF", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOK0i-syLGx3kBM7IP2Ob9EQPfMaaNCSPliA&s", description: "Brillo ajustable, luz cálida y fría. Ideal para leer o trabajar.", rating: 4.7, category: 'hogar' },
+                { id: 320, name: "Tostadora de 4 Rebanadas Acero Inox.", price: 50.00, img: "https://www.boyaca.com/wp-content/themes/boyaca/vista/imagenes/graf_zoom/102162.jpg", description: "Ranuras extra anchas, 6 niveles de tostado y función de descongelación.", rating: 4.5, category: 'hogar' },
+                { id: 321, name: "Espejo de Maquillaje con Luz LED", price: 28.00, img: "https://i5.walmartimages.com/asr/eafb4abc-e681-494e-8d68-ddc0e9a59479.75c3d4b4ec79c72df0e6e182c5b570e9.jpeg", description: "Aumento 10X, 3 modos de luz y recargable por USB.", rating: 4.6, category: 'hogar' },
+                { id: 322, name: "Juego de Ollas y Sartenes Antiadherentes (10 piezas)", price: 130.00, img: "https://http2.mlstatic.com/D_NQ_NP_651623-MEC104554380382_012026-O.webp", description: "Recubrimiento de cerámica antiadherente libre de PFOA. Aptas para inducción.", rating: 4.9, category: 'hogar' },
+                { id: 323, name: "Perchero de Pie Minimalista", price: 40.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNPBSU_kHWKsicn7dHJdgrZgrutZtkJAFIRg&s", description: "Estructura metálica resistente, base de mármol. Diseño moderno.", rating: 4.3, category: 'hogar' },
+                { id: 324, name: "Kit de Herramientas Básico (40 piezas)", price: 55.00, img: "https://mexico.newark.com/productimages/large/en_US/47W8103-40.jpg", description: "Incluye destornilladores, martillo, alicates y caja de almacenamiento.", rating: 4.7, category: 'hogar' },
+                { id: 325, name: "Aspiradora de Mano Inalámbrica", price: 85.00, originalPrice: 105.00, discount: "19% OFF", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzZkaVgRXGZwKrJ80Osy4V_a_iY49aqo5cXw&s", description: "Potente succión, ligera y filtro HEPA lavable. Ideal para el coche y pequeños desastres.", rating: 4.6, category: 'hogar' }
+            ],
+            accesorios: [
+                { id: 401, name: "Gafas de Sol Polarizadas Aviador", price: 25.00, originalPrice: 35.00, discount: "29% OFF", img: "https://images-cdn.ubuy.qa/65fdbfb01ec863507746771e-polarized-aviator-sunglasses-for-men.jpg", description: "Lentes polarizadas con protección UV400. Montura de metal ligero.", rating: 4.5, category: 'accesorios' },
+                { id: 402, name: "Reloj de Pulsera Minimalista", price: 40.00, img: "https://www.fossil.com.ec/wp-content/uploads/2023/06/FS5459_main.jpg", description: "Diseño ultra-delgado, correa de cuero genuino y movimiento de cuarzo japonés.", rating: 4.7, category: 'accesorios' },
+                { id: 403, name: "Cartera de Cuero con Bloqueo RFID", price: 30.00, img: "https://alphaclovek.com/wp-content/uploads/2020/09/E3D9689D-7222-43D9-B5DE-E5259F986AE1.jpeg", description: "Cartera delgada con capacidad para 10 tarjetas. Protege contra robo de datos.", rating: 4.8, category: 'accesorios' },
+                { id: 404, name: "Collar con Colgante de Luna", price: 18.00, originalPrice: 25.00, discount: "28% OFF", img: "https://m.media-amazon.com/images/I/81e6PitwNkL._AC_UF894,1000_QL80_.jpg", description: "Plata esterlina 925, diseño delicado y ajustable.", rating: 4.6, category: 'accesorios' },
+                { id: 405, name: "Cinturón de Piel Reversible", price: 22.00, img: "https://bassil.com.ec/wp-content/uploads/2022/02/cinturon.jpg", description: "Un lado negro, un lado café. Hebilla giratoria de metal pulido.", rating: 4.4, category: 'accesorios' },
+                { id: 406, name: "Mochila Antirrobo Ejecutiva", price: 50.00, img: "https://http2.mlstatic.com/D_NQ_NP_861842-MLU74279665740_022024-O.webp", description: "Mochila con cremalleras ocultas y puerto de carga USB.", rating: 4.8, category: 'accesorios' },
+                { id: 407, name: "Pulsera Inteligente Fitness (HR)", price: 29.99, img: "https://m.media-amazon.com/images/I/51D+Zb-10HL._AC_UF1000,1000_QL80_.jpg", description: "Monitor de ritmo cardíaco, seguimiento de actividad y notificaciones.", rating: 4.6, category: 'accesorios' },
+                { id: 408, name: "Pañuelo de Seda Estampado", price: 15.00, originalPrice: 20.00, discount: "25% OFF", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCiTxwd_elNYxU547wf-gJQs4KERHqtnzqCQ&s", description: "Pañuelo de seda 100%, ideal para el cuello o como accesorio para el bolso.", rating: 4.7, category: 'accesorios' },
+                { id: 409, name: "Estuche de Gafas Rígido", price: 8.00, img: "https://media.kleintools.io/images/original/klein/60176.jpg", description: "Interior afelpado y exterior resistente para proteger tus gafas.", rating: 4.3, category: 'accesorios' },
+                { id: 410, name: "Llavero Multifunción (Cargador)", price: 12.00, img: "https://m.media-amazon.com/images/I/71x21DjPR9L._AC_UF1000,1000_QL80_.jpg", description: "Llavero con cable de carga USB-C/Lightning integrado. Diseño compacto.", rating: 4.5, category: 'accesorios' },
+                { id: 411, name: "Aretes de Botón de Plata", price: 10.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH6aUl4_E9TYqScSKDUI-IPBA52k-lTtNlOg&s", description: "Aretes de botón de plata con acabado pulido. Hipoalergénicos.", rating: 4.8, category: 'accesorios' },
+                { id: 412, name: "Paraguas Compacto Automático", price: 20.00, originalPrice: 28.00, discount: "29% OFF", img: "https://m.media-amazon.com/images/I/616QuUeo3BL._AC_UF894,1000_QL80_.jpg", description: "Apertura y cierre automáticos, resistente al viento y al agua.", rating: 4.6, category: 'accesorios' },
+                { id: 413, name: "Funda de Silicona para Teléfono (Anti-shock)", price: 15.00, img: "https://ishopping-ecuador.com/wp-content/uploads/2020/06/image-a722bbfc5e6746a8b84c7e01224e11c3.jpg.webp", description: "Protección de grado militar con bordes elevados. Varios modelos.", rating: 4.7, category: 'accesorios' },
+                { id: 414, name: "Billetera Minimalista con Clip", price: 25.00, img: "https://m.media-amazon.com/images/I/71Dxgpv-WYL._AC_SL1500_.jpg", description: "Aluminio aeroespacial, capacidad para 6 tarjetas y clip para billetes.", rating: 4.5, category: 'accesorios' },
+                { id: 415, name: "Kit de Limpieza de Pantallas", price: 8.00, originalPrice: 10.00, discount: "20% OFF", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTOHpSUdEql33wK5OPycb2p1Ot0v9xOwxZtw&s", description: "Incluye spray limpiador sin alcohol y paño de microfibra.", rating: 4.9, category: 'accesorios' },
+                { id: 416, name: "Set de Ligas para el Pelo (10pzas)", price: 5.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBk3Llt3yD9oXC5SQz2cdrJCqiP6K0IAki5Q&s", description: "Ligas resistentes sin metal, ideales para todo tipo de cabello.", rating: 4.3, category: 'accesorios' },
+                { id: 417, name: "Pulsera de Cuero Trenzado", price: 15.00, img: "https://www.perlesandco.es/images/pratiques/images/Bracelets/Bracelets%20en%20cuir%20tress%C3%A9%20video/bracelets_cuir_tresse_presentation.jpg", description: "Pulsera de cuero genuino trenzado con cierre magnético de acero inoxidable.", rating: 4.6, category: 'accesorios' },
+                { id: 418, name: "Guantes Táctiles Invierno", price: 18.00, originalPrice: 24.00, discount: "25% OFF", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTVdW_74mecTNHSFzTZ12CsBg-poXp3vAKGw&s", description: "Material térmico con dedos conductores para usar el smartphone.", rating: 4.7, category: 'accesorios' },
+                { id: 419, name: "Caja Organizadora de Joyas", price: 35.00, img: "https://m.media-amazon.com/images/I/81K3rkgVvaL._AC_SL1500_.jpg", description: "Dos niveles con compartimentos ajustables y forro de terciopelo.", rating: 4.8, category: 'accesorios' },
+                { id: 420, name: "Soporte para Laptop Plegable", price: 20.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_sRg6Wy73_Is6t4_lrBk4Q5awOpG2psC1fg&s", description: "Ajustable en altura y ángulo. Mejora la ergonomía y ventilación.", rating: 4.9, category: 'accesorios' },
+                { id: 421, name: "Anillo Ajustable de Plata", price: 12.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThYDgTXC4JUW8sGDPbTwByYQ2ZA480Cwtt4w&s", description: "Anillo de plata de ley 925, diseño de banda delgada y ajustable.", rating: 4.5, category: 'accesorios' },
+                { id: 422, name: "Kit de Manicura Profesional (15 pzas)", price: 25.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5q3lN32HSGXCvHHYj56pWpVaq7tN3d8bajA&s", description: "Herramientas de acero inoxidable de grado quirúrgico en estuche de cuero.", rating: 4.7, category: 'accesorios' },
+                { id: 423, name: "Correa para Smartwatch (Silicona)", price: 10.00, originalPrice: 15.00, discount: "33% OFF", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWQM2wUxI7Rzs4fwcf-k2etyQzufxPxFC-YQ&s", description: "Correa de silicona suave, compatible con modelos de 20mm y 22mm.", rating: 4.6, category: 'accesorios' },
+                { id: 424, name: "Tarjetero de Cuello con RFID", price: 15.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_eWxZepDWra_2MgUmLq3JdS78ZtbsVfRuQw&s", description: "Ideal para viajes, múltiples compartimentos para documentos y efectivo.", rating: 4.4, category: 'accesorios' },
+                { id: 425, name: "Broche de Solapa Minimalista", price: 8.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRGHFcCGJCiEKRQKV7QLHDitr397inPDg5fw&s", description: "Broche pequeño de metal pulido, perfecto para chaquetas o mochilas.", rating: 4.2, category: 'accesorios' }
+            ],
+            otros: [
+                { id: 501, name: "Cuaderno Inteligente Reutilizable", price: 30.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBzjmPzYcjPgbqtcBedWRaaUFIX_fj2y3bwA&s", description: "Cuaderno cuyas páginas se borran con un paño húmedo. Sube tus notas a la nube.", rating: 4.5, category: 'otros' },
+                { id: 502, name: "Juego de Mesa Estratégico (Ages)", price: 45.00, originalPrice: 60.00, discount: "25% OFF", img: "https://i5.walmartimages.com/seo/Capstone-Games-Age-of-Innovation-A-Terra-Mystica-Game-Faction-Strategy-Board-Game-Ages-14-1-5-Players-40-Min_5b792844-85c4-4c41-9f57-3e11465a60b8.058890a4bd0e92ca9e483e0d94788a18.jpeg", description: "Juego de mesa de estrategia y construcción de civilizaciones para 2-4 jugadores.", rating: 4.9, category: 'otros' },
+                { id: 503, name: "Mini Proyector Portátil HD", price: 150.00, img: "https://m.media-amazon.com/images/I/51GTqntMW8L._AC_SL1224_.jpg", description: "Proyector LED con entrada HDMI y USB. Resolución HD nativa.", rating: 4.2, category: 'otros' },
+                { id: 504, name: "Libro: 'El Universo en tus Manos'", price: 20.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq4IARxhR4LNTUUcCGJT6x0yYiKeEik2sfnQ&s", description: "Best-seller de divulgación científica sobre la física cuántica y el cosmos.", rating: 4.7, category: 'otros' },
+                { id: 505, name: "Mascota Electrónica Interativa", price: 35.00, originalPrice: 45.00, discount: "22% OFF", img: "https://m.media-amazon.com/images/I/716BajcQptL._AC_SL1500_.jpg", description: "Juguete interactivo que reacciona a la voz y el tacto. Ideal para niños.", rating: 4.4, category: 'otros' },
+                { id: 506, name: "Set de Pesas Ajustables (20kg)", price: 99.00, img: "https://elbarbaro.ec/wp-content/uploads/2020/11/mancuernas-800x800-20-kg.jpg", description: "Pesas ajustables de 2.5kg a 20kg. Ideal para entrenamiento en casa.", rating: 4.7, category: 'otros' },
+                { id: 507, name: "Puzle 3D de Madera (Catedral)", price: 25.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7RGQnhBfZwkOuRwKaVbjO8jT5Bo2YvbDp5g&s", description: "Puzle tridimensional de 200 piezas. No requiere pegamento.", rating: 4.5, category: 'otros' },
+                { id: 508, name: "Kit de Cerveza Artesanal (IPA)", price: 40.00, originalPrice: 50.00, discount: "20% OFF", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_hgZhAlUZiGGT0xpDux8V02Ho_SIBz-BdYA&s", description: "Todo lo necesario para elaborar 4 litros de cerveza IPA en casa.", rating: 4.6, category: 'otros' },
+                { id: 509, name: "Calendario de Escritorio Magnético", price: 15.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwiZbl_B48XHWTleT-s8rfP4FwzIFGrmWzvQ&s", description: "Calendario perpetuo de metal, se ajusta deslizando imanes.", rating: 4.3, category: 'otros' },
+                { id: 510, name: "Set de Acuarelas Profesionales (36 colores)", price: 30.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrwpcAJJy0Y4QPluJKM_Q1aUV4Z4PmFEgvwQ&s", description: "Pigmentos de alta calidad, incluye pincel de agua y estuche metálico.", rating: 4.8, category: 'otros' },
+                { id: 511, name: "Cámara Instantánea Vintage", price: 69.00, img: "https://okdiario.com/coolthelifestyle/img/2021/09/20/captura-de-pantalla-2021-09-20-a-las-10.02.21.jpg", description: "Cámara que imprime fotos al instante. Estilo retro y fácil de usar.", rating: 4.4, category: 'otros' },
+                { id: 512, name: "Kit de Jardinería para Interiores", price: 22.00, originalPrice: 30.00, discount: "27% OFF", img: "https://m.media-amazon.com/images/I/91qFY3-tD9L._AC_UF894,1000_QL80_.jpg", description: "Incluye semillas, macetas biodegradables y tierra. Para hierbas aromáticas.", rating: 4.7, category: 'otros' },
+                { id: 513, name: "Silla de Masaje Shiatsu Portátil", price: 180.00, img: "https://vanlig.mx/cdn/shop/files/02_22bb1b40-e1f3-4c56-9ba5-88502cdf6c79.png?v=1733418030&width=1200", description: "Calor terapéutico y nodos de masaje rotatorios para espalda y cuello.", rating: 4.9, category: 'otros' },
+                { id: 514, name: "Taza de Cerámica con Tapa de Bambú", price: 12.00, img: "https://http2.mlstatic.com/D_NQ_NP_695061-MLU74242448432_022024-O.webp", description: "Ideal para infusiones, mantiene el calor y tiene filtro integrado.", rating: 4.5, category: 'otros' },
+                { id: 515, name: "Dron Plegable con Cámara HD", price: 90.00, originalPrice: 120.00, discount: "25% OFF", img: "https://elbarbaro.ec/wp-content/uploads/2021/10/dron-800x800-1.jpg", description: "Fácil de volar, ideal para principiantes. Retorno automático y control por gestos.", rating: 4.3, category: 'otros' },
+                { id: 516, name: "Set de Viaje de Almohadas Inflables", price: 18.00, img: "https://http2.mlstatic.com/D_NQ_NP_874257-MLU74389102891_022024-O.webp", description: "Incluye almohada para cuello, antifaz y tapones. Compacto para maleta.", rating: 4.6, category: 'otros' },
+                { id: 517, name: "Agenda Planificadora 2026", price: 20.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlB_xafPley7Q9WCSM9gmWVkOmhl0e_cp1fQ&s", description: "Planificación semanal, mensual y anual. Tapa dura y papel de 100g.", rating: 4.7, category: 'otros' },
+                { id: 518, name: "Kit de Limpieza de Zapatos Premium", price: 25.00, img: "https://kywiec.vtexassets.com/arquivos/ids/288391-800-auto?v=638851840164670000&width=800&height=auto&aspect=true", description: "Incluye cepillo, solución limpiadora y toalla de microfibra.", rating: 4.5, category: 'otros' },
+                { id: 519, name: "Globo Terráqueo Flotante Magnético", price: 60.00, originalPrice: 80.00, discount: "25% OFF", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-9ksqG_v36xheIdlPFzQ65Sxn7xziFmZ8Cw&s", description: "Globo que levita sobre su base. Un adorno futurista para el escritorio.", rating: 4.8, category: 'otros' },
+                { id: 520, name: "Termómetro Digital de Frente (Sin Contacto)", price: 25.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWTAfokYvoWuRJdd1fFOugd_eKE3XOUVIhnw&s", description: "Lectura instantánea y precisa. Ideal para toda la familia.", rating: 4.6, category: 'otros' },
+                { id: 521, name: "Kit de Primeros Auxilios (Grande)", price: 40.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYP887zwBNjMJSW4TLRW4CiTPfLyZYt0W0UA&s", description: "Contiene 150 artículos esenciales. Ideal para el hogar o el coche.", rating: 4.7, category: 'otros' },
+                { id: 522, name: "Juego de Dardos Electrónico", price: 45.00, originalPrice: 55.00, discount: "18% OFF", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF8_aqzgCvTmMhKNQio77eAaXS9z0j1mbJ5Q&s", description: "Para hasta 8 jugadores, incluye 6 dardos y pantalla LCD.", rating: 4.4, category: 'otros' },
+                { id: 523, name: "Máquina de Coser Portátil", price: 70.00, img: "https://www.tecnotrade.com.ec/wp-content/uploads/2021/03/s-l1600.jpg", description: "Ideal para reparaciones rápidas y proyectos pequeños. 12 puntadas integradas.", rating: 4.5, category: 'otros' },
+                { id: 524, name: "Binoculares Compactos (10x25)", price: 30.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY5sAeJTqw_ENZgx_dn7B3ytSCt4vZuYPPvA&s", description: "Ideales para observación de aves, conciertos y deportes. Incluyen estuche.", rating: 4.6, category: 'otros' },
+                { id: 525, name: "Caja Fuerte de Seguridad Digital", price: 95.00, img: "https://http2.mlstatic.com/D_NQ_NP_634232-MEC92625584578_092025-O.webp", description: "Caja fuerte de acero con cerradura electrónica programable.", rating: 4.8, category: 'otros' }
+            ]
+        };
+        
+        // La lista de productos populares es una mezcla predefinida
+        productsData.populares = [
+            productsData.ropa[0], // Camiseta Deportiva Elite
+            productsData.tecnologia[0], // Laptop Ultrabook X1
+            productsData.hogar[0], // Robot Aspirador Inteligente
+            productsData.accesorios[0], // Gafas de Sol Polarizadas
+            productsData.ropa[4], // Vestido de Noche Glamour
+            productsData.tecnologia[4], // Webcam 4K con Autoenfoque
+            productsData.hogar[3], // Purificador de Aire Hepa
+            productsData.accesorios[3], // Collar con Colgante de Luna
+            productsData.ropa[2], // Chaqueta Cortavientos Neo
+            productsData.tecnologia[9], // Mini Proyector HDMI
+            productsData.hogar[6], // Manta de Piel Sintética
+            productsData.accesorios[5], // Mochila Antirrobo Ejecutiva
+            productsData.ropa[1], // Jeans Slim Fit Clásico
+            productsData.tecnologia[13], // Estación de Carga Inalámbrica 3 en 1
+            productsData.hogar[11], // Set de Toallas de Algodón Egipcio x4
+            productsData.accesorios[7], // Pañuelo de Seda Estampado
+            productsData.ropa[15], // Botines Chelsea de Ante
+            productsData.tecnologia[14], // Bombillo Inteligente RGB
+            productsData.hogar[14], // Escobillón y Recogedor de Diseño
+            productsData.accesorios[11] // Paraguas Compacto Automático
+        ];
+
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        let productSelected = null;
+        let shippingAddress = {};
+        let selectedColor = null;
+        let promoInterval;
+        let currentCategoryView = null; 
+
+        // --- FUNCIONES DE UTILIDAD ---
+        function saveToLocalStorage() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+        }
+
+        function updateCounts() {
+            document.getElementById('cart-count').textContent = cart.length;
+            document.getElementById('fav-count').textContent = favorites.length;
+        }
+
+        function findProductById(id) {
+            // Recorre todas las categorías para encontrar el producto
+            for (const key in productsData) {
+                const product = productsData[key].find(p => p.id === id);
+                if (product) return product;
+            }
+            return null;
+        }
+        
+        function showMainPage() {
+            currentCategoryView = null;
+            document.getElementById('category-view-page').style.display = 'none';
+            document.getElementById('populares-main').style.display = 'block';
+            document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openCategoryPage(category) {
+            currentCategoryView = category;
+            document.getElementById('populares-main').style.display = 'none';
+            const categoryViewPage = document.getElementById('category-view-page');
+            categoryViewPage.style.display = 'block';
+            
+            // Título de la categoría
+            document.getElementById('category-page-title').textContent = category.charAt(0).toUpperCase() + category.slice(1);
+            
+            // Botón de Ver Todo/Ver Menos
+            document.getElementById('btn-view-dynamic').textContent = 'Ver Todo';
+
+            // Renderizar todos los productos de esa categoría
+            const products = productsData[category] || [];
+            renderProducts(products, 'dynamic-list');
+
+            // Moverse al inicio de la nueva sección
+            categoryViewPage.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Modificada para aceptar 'dynamic' como ID y usar currentCategoryView para la data
+        function scrollCategory(categoryId, direction) {
+            const listId = (categoryId === 'dynamic' && currentCategoryView) ? 'dynamic' : categoryId;
+            const list = document.getElementById(`${listId}-list`);
+            const scrollAmount = 300 * direction;
+            if (list) {
+                list.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+
+        function renderProducts(products, containerId, isFullView = false) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = ''; // Limpiar productos anteriores
+
+            // Asegurar que la vista completa (Ver Todo) se comporte como cuadrícula
+            if (isFullView) {
+                container.style.flexWrap = 'wrap';
+            } else {
+                container.style.flexWrap = 'nowrap';
+            }
+
+            products.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product';
+
+                // Determinar la categoría para la función toggleFavorite (para el re-renderizado)
+                const categoryForFav = product.category || containerId.replace('-list', '');
+                const isFavorite = favorites.some(f => f.id === product.id);
+                
+                const discountBadge = product.discount ? `<div class="discount-badge">${product.discount}</div>` : '';
+                const originalPrice = product.originalPrice ? `<p class="original-price">$${product.originalPrice.toFixed(2)}</p>` : '';
+                const currentPriceClass = product.originalPrice ? 'has-discount' : '';
+
+                productDiv.innerHTML = `
+                    <div class="product-img-container" onclick="openProductDetail(${product.id})">
+                        ${discountBadge}
+                        <img src="${product.img}" alt="${product.name}" />
+                    </div>
+                    <h4 onclick="openProductDetail(${product.id})" style="margin-top: 0; margin-bottom: 5px;">${product.name}</h4>
+                    <div class="product-price">
+                        ${originalPrice}
+                        <p class="current-price ${currentPriceClass}">$${product.price.toFixed(2)}</p>
+                    </div>
+                    <div class="actions">
+                        <button class="add-cart" onclick="openProductDetail(${product.id})">Ver Detalles</button>
+                        <button class="add-favorite" onclick="toggleFavorite(${product.id}, '${categoryForFav}')">
+                            ${isFavorite ? '💔 Quitar Favorito' : '⭐ Añadir Favorito'}
+                        </button>
+                    </div>
+                `;
+                container.appendChild(productDiv);
+            });
+        }
+
+        // Función modificada para trabajar con la vista dinámica de categoría
+        function toggleView(dynamicId) {
+            // El ID 'dynamic' es constante para la vista de categoría
+            const category = currentCategoryView;
+            if (!category) return; // No hace nada si no hay categoría cargada
+
+            const listContainer = document.getElementById('dynamic-list');
+            const button = document.getElementById('btn-view-dynamic');
+            const isFullView = listContainer.classList.contains('full-view');
+
+            if (isFullView) {
+                // Volver a Carrusel (Ver Menos)
+                listContainer.classList.remove('full-view');
+                listContainer.style.flexWrap = 'nowrap';
+                listContainer.style.maxHeight = '450px';
+                listContainer.style.overflowX = 'scroll';
+                listContainer.style.overflowY = 'hidden';
+                button.textContent = 'Ver Todo';
+                // Mostrar flechas de scroll
+                document.querySelector('#category-view-page .scroll-left').style.display = 'flex';
+                document.querySelector('#category-view-page .scroll-right').style.display = 'flex';
+            } else {
+                // Pasar a Vista Completa (Ver Todo: Grid horizontal/vertical)
+                listContainer.classList.add('full-view');
+                listContainer.style.flexWrap = 'wrap';
+                listContainer.style.maxHeight = 'none';
+                listContainer.style.overflowX = 'hidden';
+                listContainer.style.overflowY = 'visible';
+                button.textContent = 'Ver Menos';
+                // Ocultar flechas de scroll en vista completa
+                document.querySelector('#category-view-page .scroll-left').style.display = 'none';
+                document.querySelector('#category-view-page .scroll-right').style.display = 'none';
+            }
+
+            // Re-renderizar la vista actual (usa la categoría real cargada)
+            renderProducts(productsData[category], 'dynamic-list', !isFullView);
+        }
+
+        function addToCart(id, quantity, color) {
+            const product = findProductById(id);
+            if (product) {
+                const quantityInt = parseInt(quantity);
+                if (quantityInt < 1) {
+                    alert('La cantidad debe ser al menos 1.');
+                    return;
+                }
+
+                const itemId = `${id}-${color || 'none'}-${Date.now()}`; // ID único para el item
+                
+                // Crear el objeto del item para el carrito
+                const cartItem = {
+                    itemId: itemId,
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    quantity: quantityInt,
+                    img: product.img,
+                    color: color
+                };
+
+                cart.push(cartItem);
+                saveToLocalStorage();
+                updateCounts();
+                alert(`🛒 Se añadieron ${quantityInt} x ${product.name}${color ? ` (${color})` : ''} al carrito.`);
+                closeAllModals(); 
+            }
+        }
+
+        function removeFromCart(itemId) {
+            const initialLength = cart.length;
+            cart = cart.filter(item => item.itemId !== itemId);
+            if (cart.length < initialLength) {
+                saveToLocalStorage();
+                updateCounts();
+                openCart(); // Re-renderizar el carrito
+            }
+        }
+
+
+        function toggleFavorite(id, category) {
+            const product = findProductById(id);
+            if (product) {
+                const favIndex = favorites.findIndex(item => item.id === id);
+                if (favIndex > -1) {
+                    favorites.splice(favIndex, 1);
+                    alert(`💔 ${product.name} quitado de favoritos.`);
+                } else {
+                    favorites.push(product);
+                    alert(`⭐ ¡${product.name} añadido a favoritos!`);
+                }
+                saveToLocalStorage();
+                updateCounts();
+
+                // RE-RENDERIZADO LÓGICO
+                if (category === 'populares') {
+                    // Re-renderiza la vista de populares
+                    renderProducts(productsData.populares, 'populares-list', false);
+                } else if (category === currentCategoryView) {
+                    // Re-renderiza la vista de categoría dinámica
+                    const isFullView = document.getElementById('dynamic-list').classList.contains('full-view');
+                    renderProducts(productsData[category], 'dynamic-list', isFullView);
+                }
+                
+                if (document.getElementById('fav-modal').classList.contains('is-active')) {
+                    openFavorites();
+                }
+            }
+        }
+
+
+        // --- MODALES Y DETALLES ---
+        function openModal(modalId) {
+            const overlay = document.getElementById('overlay');
+            const modal = document.getElementById(modalId);
+            
+            overlay.style.display = 'flex';
+            
+            // Asegura que se muestre como una modal superpuesta
+            modal.classList.add('is-active');
+            modal.style.display = 'block';
+            modal.style.position = 'fixed';
+            modal.style.top = '50%';
+            modal.style.left = '50%';
+            modal.style.transform = 'translate(-50%, -50%) scale(1)';
+            modal.style.opacity = '1';
+        }
+
+        function closeAllModals() {
+            document.getElementById('overlay').style.display = 'none';
+            const modals = [
+                'product-detail-modal', 
+                'checkout-modal', 
+                'fav-modal', 
+                'confirmation-modal', 
+                'promo-modal',
+                'devoluciones-modal',
+                'terminos-modal',
+                'privacidad-modal',
+                'faq-modal'
+            ];
+            
+            modals.forEach(id => {
+                const modal = document.getElementById(id);
+                modal.classList.remove('is-active');
+                modal.style.display = 'none';
+                modal.style.position = 'relative'; // Vuelve al flujo normal
+                modal.style.top = '';
+                modal.style.left = '';
+                modal.style.transform = '';
+                modal.style.opacity = '';
+            });
+
+            // Limpiar la forma de pago con tarjeta en el checkout
+            document.getElementById('card-form-container').style.display = 'none';
+            paymentMethodSelected = null;
+        }
+
+        function openProductDetail(id) {
+            const productInfo = findProductById(id);
+            if (!productInfo) return;
+            
+            productSelected = productInfo; 
+            selectedColor = null; // Resetear el color seleccionado
+
+            // 1. Imagen y Descuento
+            document.getElementById('detail-img').src = productInfo.img;
+            const discountBadgeEl = document.getElementById('detail-discount-badge');
+            if (productInfo.discount) {
+                discountBadgeEl.textContent = productInfo.discount;
+                discountBadgeEl.style.display = 'block';
+            } else {
+                discountBadgeEl.style.display = 'none';
+            }
+
+            // 2. Nombre, Descripción, Cantidad (el min="1" max="10" ya está en HTML)
+            document.getElementById('detail-name').textContent = productInfo.name;
+            document.getElementById('detail-description').textContent = productInfo.description;
+            document.getElementById('detail-quantity').value = 1;
+
+            // 3. Precios
+            const originalPriceEl = document.getElementById('detail-original-price');
+            const currentPriceEl = document.getElementById('detail-price');
+            currentPriceEl.textContent = `$${productInfo.price.toFixed(2)}`;
+            currentPriceEl.className = 'detail-price' + (productInfo.originalPrice ? ' has-discount' : '');
+
+            if (productInfo.originalPrice) {
+                originalPriceEl.textContent = `$${productInfo.originalPrice.toFixed(2)}`;
+                originalPriceEl.style.display = 'block';
+            } else {
+                originalPriceEl.style.display = 'none';
+            }
+
+            // 4. Rating (Estrellas)
+            const fullStars = '★'.repeat(Math.floor(productInfo.rating));
+            const emptyStars = '☆'.repeat(5 - Math.floor(productInfo.rating));
+            document.getElementById('detail-rating').textContent = fullStars + emptyStars;
+            document.getElementById('detail-rating').style.color = 'var(--secondary-color)';
+
+
+            // 5. Opciones de Color
+            const colorOptionsContainer = document.getElementById('color-options-container');
+            const colorOptionsDiv = document.getElementById('color-options');
+            colorOptionsDiv.innerHTML = ''; 
+
+            if (productInfo.colors && productInfo.colors.length > 0) {
+                colorOptionsContainer.style.display = 'block';
+                productInfo.colors.forEach((color) => {
+                    const colorDiv = document.createElement('div');
+                    colorDiv.className = 'color-option';
+                    colorDiv.style.backgroundColor = color;
+                    colorDiv.setAttribute('title', color);
+                    colorDiv.onclick = () => selectColor(color, colorDiv);
+                    colorOptionsDiv.appendChild(colorDiv);
+                });
+                // Seleccionar el primer color por defecto
+                selectColor(productInfo.colors[0], colorOptionsDiv.querySelector('.color-option'));
+            } else {
+                colorOptionsContainer.style.display = 'none';
+            }
+
+            // 6. Botón de acción (Añadir al Carrito)
+            const actionsDiv = document.querySelector('#product-detail-modal .detail-actions');
+            // Determinar la categoría para el re-renderizado
+            const category = productInfo.category || (productInfo.id >= 101 && productInfo.id <= 125 ? 'ropa' : productInfo.id >= 201 && productInfo.id <= 225 ? 'tecnologia' : productInfo.id >= 301 && productInfo.id <= 325 ? 'hogar' : productInfo.id >= 401 && productInfo.id <= 425 ? 'accesorios' : 'otros');
+            const isFavoriteDetail = favorites.some(f => f.id === productInfo.id);
+
+            actionsDiv.innerHTML = `
+                <button class="add-cart" onclick="
+                    const qty = document.getElementById('detail-quantity').value; 
+                    const color = productSelected.colors ? selectedColor : null; 
+                    addToCart(${productInfo.id}, qty, color); 
+                " style="margin-right: 10px;">🛒 Añadir al Carrito</button>
+                <button class="add-favorite" onclick="toggleFavorite(${productInfo.id}, '${category}'); openProductDetail(${productInfo.id});">
+                    ${isFavoriteDetail ? '💔 Quitar Favorito' : '⭐ Añadir Favorito'}
+                </button>
+            `;
+
+            openModal('product-detail-modal');
+        }
+
+        function selectColor(colorName, colorDiv) {
+            selectedColor = colorName;
+            document.querySelectorAll('.color-option').forEach(div => div.classList.remove('selected'));
+            colorDiv.classList.add('selected');
+        }
+
+        function openCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<li style="text-align: center; color: var(--secondary-color);">Tu carrito está vacío.</li>';
+                document.querySelector('#cart-view .add-cart').disabled = true;
+            } else {
+                document.querySelector('#cart-view .add-cart').disabled = false;
+                cart.forEach(item => {
+                    const price = item.price * item.quantity;
+                    total += price;
+                    const variation = item.color ? ` (${item.color})` : '';
+
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <div class="item-info">
+                            <img src="${item.img}" alt="${item.name}" />
+                            <span>${item.name} (${item.quantity} ud)${variation}</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span style="font-weight: 700;">$${price.toFixed(2)}</span>
+                            <button onclick="removeFromCart('${item.itemId}')" style="background: var(--discount-color); color: white; border-radius: 5px; padding: 5px; border: none; font-weight: 600;">&times;</button>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(li);
+                });
+            }
+
+            document.getElementById('cart-total').textContent = total.toFixed(2);
+            document.getElementById('payment-total').textContent = total.toFixed(2);
+            document.getElementById('card-total-display').textContent = total.toFixed(2);
+            
+            // Resetear a la vista del carrito
+            showView('cart-view'); 
+            openModal('checkout-modal');
+        }
+
+        function openFavorites() {
+            const favItemsContainer = document.getElementById('fav-items');
+            favItemsContainer.innerHTML = '';
+
+            if (favorites.length === 0) {
+                favItemsContainer.innerHTML = '<li style="text-align: center; color: var(--secondary-color);">No tienes productos favoritos.</li>';
+            } else {
+                favorites.forEach(product => {
+                    // Determinar la categoría para la función toggleFavorite (para el re-renderizado)
+                    const categoryForFav = product.category || (product.id >= 101 && product.id <= 125 ? 'ropa' : product.id >= 201 && product.id <= 225 ? 'tecnologia' : product.id >= 301 && product.id <= 325 ? 'hogar' : product.id >= 401 && product.id <= 425 ? 'accesorios' : 'otros');
+                    
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <div class="item-info">
+                            <img src="${product.img}" alt="${product.name}" />
+                            <span>${product.name}</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span style="font-weight: 700; color: var(--primary-color);">$${product.price.toFixed(2)}</span>
+                            <button class="add-cart" onclick="openProductDetail(${product.id})" style="width: auto;">Ver</button>
+                            <button onclick="toggleFavorite(${product.id}, '${categoryForFav}')" style="background: var(--discount-color); color: white; border-radius: 5px; padding: 5px; border: none; font-weight: 600;">💔</button>
+                        </div>
+                    `;
+                    favItemsContainer.appendChild(li);
+                });
+            }
+            openModal('fav-modal');
+        }
+
+        function goToCheckout() {
+            showView('shipping-view');
+        }
+
+        function goToPayment() {
+            // Validación de formulario (simple)
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const ciudad = document.getElementById('ciudad').value;
+            const callePrincipal = document.getElementById('calle-principal').value;
+            const telefono = document.getElementById('telefono').value;
+
+            if (!nombre || !email || !ciudad || !callePrincipal || !telefono) {
+                alert('Por favor, complete todos los campos de envío requeridos.');
+                return;
+            }
+
+            shippingAddress = {
+                nombre,
+                email,
+                ciudad,
+                callePrincipal,
+                calleSecundaria: document.getElementById('calle-secundaria').value,
+                telefono
+            };
+
+            showView('payment-view');
+        }
+
+        let paymentMethodSelected = null;
+        function showCardForm(method) {
+            const formContainer = document.getElementById('card-form-container');
+
+            if (method === 'tarjeta' || method === 'paypal') {
+                paymentMethodSelected = method;
+                formContainer.style.display = 'block';
+                
+                // Limpiar campos y validar si es solo por tarjeta
+                if (method === 'tarjeta') {
+                    document.querySelector('#card-form-container h4').textContent = 'Detalles de la Tarjeta (Crédito/Débito)';
+                } else {
+                    document.querySelector('#card-form-container h4').textContent = 'Detalles de Pago con PayPal';
+                }
+            } else {
+                formContainer.style.display = 'none';
+                paymentMethodSelected = null;
+            }
+        }
+
+        function showView(viewId) {
+            document.getElementById('cart-view').style.display = 'none';
+            document.getElementById('shipping-view').style.display = 'none';
+            document.getElementById('payment-view').style.display = 'none';
+            document.getElementById(viewId).style.display = 'block';
+        }
+
+        function processOrder(method) {
+            const total = parseFloat(document.getElementById('cart-total').textContent);
+            
+            // Validación de la tarjeta si aplica
+            if (method === 'tarjeta' || method === 'paypal') {
+                const cardNumber = document.getElementById('card-number').value;
+                const cardExpiry = document.getElementById('card-expiry').value;
+                const cardCvv = document.getElementById('card-cvv').value;
+                const cardName = document.getElementById('card-name').value;
+
+                if (!cardNumber || !cardExpiry || !cardCvv || !cardName) {
+                    alert('Por favor, complete todos los detalles de la tarjeta.');
+                    return;
+                }
+            }
+            
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío. Por favor, añade productos antes de pagar.');
+                return;
+            }
+            
+            let orderId = 'JOALMI-' + Date.now().toString().slice(-6);
+            let methodDisplay = method;
+
+            // Simulación de procesamiento de pago
+            switch (method) {
+                case 'contra-entrega':
+                    methodDisplay = 'Contra Entrega (Efectivo)';
+                    alert('Su orden ha sido creada y será enviada. Pague al recibir.');
+                    break;
+                case 'tarjeta':
+                    methodDisplay = 'Tarjeta de Crédito/Débito';
+                    alert('Procesando pago con tarjeta... ¡Pago exitoso!');
+                    break;
+                case 'paypal':
+                    methodDisplay = 'PayPal';
+                    alert('Redirigiendo a PayPal... ¡Pago exitoso!');
+                    break;
+                case 'binance':
+                    methodDisplay = 'Binance USDT (Criptomoneda)';
+                    alert('Su orden ha sido creada. Por favor, revise su email para la dirección de billetera y realice la transferencia a nuestra billetera USDT. Recibirá instrucciones en su email.');
+                    break;
+            }
+
+            // Mostrar modal de confirmación
+            document.getElementById('order-id').textContent = orderId;
+            document.getElementById('final-total').textContent = total.toFixed(2);
+            document.getElementById('final-method').textContent = methodDisplay;
+            document.getElementById('final-address').textContent = `${shippingAddress.callePrincipal}, ${shippingAddress.ciudad}. Tel: ${shippingAddress.telefono}`;
+            
+            closeAllModals(); 
+            openModal('confirmation-modal');
+
+            // Limpiar carrito y favoritos
+            cart = [];
+            shippingAddress = {};
+            saveToLocalStorage();
+            updateCounts();
+        }
+
+        // --- PUBLICIDAD Y OTROS ---
+        function openPromoModal() {
+            // Selecciona un producto al azar de la data total para la promo
+            const allProducts = [];
+            for (const key in productsData) {
+                if (key !== 'populares') { // Evitar duplicar si 'populares' no tiene categoría padre
+                    productsData[key].forEach(p => {
+                        if (p.originalPrice && p.discount) {
+                            allProducts.push(p);
+                        }
+                    });
+                }
+            }
+
+            if (allProducts.length === 0) return; // No hay productos con descuento
+
+            const randomIndex = Math.floor(Math.random() * allProducts.length);
+            productSelected = allProducts[randomIndex]; // Reutilizar productSelected para el modal
+            
+            document.getElementById('promo-name').textContent = productSelected.name;
+            document.getElementById('promo-discount').textContent = productSelected.discount;
+            document.getElementById('promo-img').src = productSelected.img;
+            document.getElementById('promo-img').alt = productSelected.name;
+            
+            openModal('promo-modal');
+        }
+
+        function filterProducts() {
+            const searchTerm = document.getElementById('search-box').value.toLowerCase();
+            const listId = 'search-results-list';
+            const category = 'search';
+            const sectionId = 'search-results-section';
+            
+            // Usar una función que encuentre productos en todas las categorías
+            let filteredProducts = [];
+            for (const key in productsData) {
+                // Evitar buscar en la lista 'populares' para no duplicar si ya están en sus categorías
+                if (key !== 'populares') { 
+                    const products = productsData[key].filter(p => 
+                        p.name.toLowerCase().includes(searchTerm) || 
+                        p.description.toLowerCase().includes(searchTerm) || 
+                        p.category.toLowerCase().includes(searchTerm)
+                    );
+                    filteredProducts = filteredProducts.concat(products);
+                }
+            }
+
+            // Eliminar duplicados por ID (por si un producto tiene descripción y categoría que coinciden)
+            const uniqueProducts = [];
+            const productIds = new Set();
+            for (const p of filteredProducts) {
+                if (!productIds.has(p.id)) {
+                    uniqueProducts.push(p);
+                    productIds.add(p.id);
+                }
+            }
+            
+            filteredProducts = uniqueProducts;
+
+
+            let section = document.getElementById(sectionId);
+            const mainContent = document.getElementById('populares-main');
+
+            if (searchTerm.length > 0) {
+                mainContent.style.display = 'none';
+                document.getElementById('category-view-page').style.display = 'none';
+
+                if (!section) {
+                    section = document.createElement('section');
+                    section.id = sectionId;
+                    section.innerHTML = `<div class="category-title">${category.charAt(0).toUpperCase() + category.slice(1)} (Búsqueda)</div><div class="product-container"><div class="product-list full-view" id="${listId}"></div></div>`;
+                    // Añadir antes del footer
+                    document.body.insertBefore(section, document.querySelector('footer'));
+                }
+
+                if (filteredProducts.length > 0) {
+                    section.style.display = 'block';
+                    renderProducts(filteredProducts, listId, true); 
+                } else {
+                    section.style.display = 'block';
+                    document.getElementById(listId).innerHTML = `<p style="text-align: center; color: var(--secondary-color);">No se encontraron resultados para "${searchTerm}".</p>`;
+                    renderProducts([], listId, true); 
+                }
+            } else {
+                if (section) {
+                    section.style.display = 'none';
+                }
+                mainContent.style.display = 'block'; // Volver a mostrar populares al borrar la búsqueda
+            }
+        }
+
+
+        // --- INICIALIZACIÓN --
+        // Modificada para solo renderizar la sección de populares al inicio
+        function initializeStore() {
+            // Inicializar la página para que solo se vea la sección de populares
+            document.getElementById('category-view-page').style.display = 'none';
+            document.getElementById('populares-main').style.display = 'block';
+
+            // Renderizar solo los productos populares
+            renderProducts(productsData.populares, 'populares-list', false);
+            
+            updateCounts(); 
+            promoInterval = setInterval(openPromoModal, 60000); 
+            openPromoModal(); 
+        }
+        
+        document.addEventListener('DOMContentLoaded', initializeStore);
+    </script>
+</body>
+</html>
