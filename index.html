@@ -747,7 +747,7 @@
         <button onclick="openCategoryPage('ropa')">Ropa</button>
         <button onclick="openCategoryPage('tecnologia')">Tecnología</button>
         <button onclick="openCategoryPage('hogar')">Hogar</button>
-        <button onclick="openCategoryPage('accesorios')">Accesorios</button>
+        <button onclick="openCategoryPage('mas')">Accesorios</button>
         <button onclick="openCategoryPage('otros')">Otros</button>
     </nav>
 
@@ -1038,7 +1038,7 @@
         // --- BASE DE DATOS Y LÓGICA (CON DESCUENTOS Y COLORES) ---
         const productsData = {
             ropa: [
-                { id: 101, name: "Camiseta Deportiva Elite", price: 15.00, originalPrice: 20.00, discount: "25% OFF", img: "https://s.alicdn.com/@sc04/kf/H661e61bf753245299127a10ebe313f3fN.jpg", description: "Camiseta técnica de secado rápido, ideal para entrenamiento intenso.", rating: 4.5, category: 'ropa', colors: ['#00bcd4', '#e91e63', '#4CAF50'] },
+                { id: 101, name: "Camiseta Deportiva Elite", price: 20.00, originalPrice: 20.00, discount: "25% OFF", img: "https://s.alicdn.com/@sc04/kf/H661e61bf753245299127a10ebe313f3fN.jpg", description: "Camiseta técnica de secado rápido, ideal para entrenamiento intenso.", rating: 4.5, category: 'ropa', colors: ['#00bcd4', '#e91e63', '#4CAF50'] },
                 { id: 102, name: "Jeans Slim Fit Clásico", price: 45.00, img: "https://lee.com.ec/wp-content/uploads/SLIM.jpg", description: "Jeans de corte slim fit, mezcla de algodón y elastano para máxima comodidad.", rating: 4.2, category: 'ropa' },
                 { id: 103, name: "Chaqueta Cortavientos Neo", price: 55.00, originalPrice: 70.00, discount: "21% OFF", img: "https://www.izas-outdoor.com/cdn/shop/files/c8f780f2eb7d9b466605e4922bbd8803.jpg?v=1711569737&width=1920", description: "Resistente al agua y al viento. Ideal para running y uso casual.", rating: 4.6, category: 'ropa', colors: ['#000000', '#f5f5f5'] },
                 { id: 104, name: "Zapatos de Cuero Formal", price: 75.00, img: "https://m.media-amazon.com/images/I/71EkzI8TXiL.jpg", description: "Zapato formal de cuero genuino, suela antideslizante.", rating: 4.0, category: 'ropa' },
@@ -1065,7 +1065,7 @@
                 { id: 125, name: "Medias de Compresión", price: 10.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc84sRIzfl0_FdvzdcYPrSJXqeOi_cZh5Qhw&s", description: "Medias de compresión para deportes o viajes largos. Mejoran la circulación.", rating: 4.6, category: 'ropa' }
             ],
             tecnologia: [
-                { id: 201, name: "Laptop Ultrabook X1 (16GB RAM)", price: 799.00, originalPrice: 999.00, discount: "20% OFF", img: "https://i0.wp.com/cemco.com.ec/wp-content/uploads/2025/10/thinkpad-x1-carbon-g12-21kc00c3lm-frontal-14-wuxga-ips-400nits-low-power-ultra7-155u-32gb-lpddr5x-1tb-pcie4-win11-pro-dual-tb4-1kg.webp?fit=600%2C600&ssl=1", description: "Portátil ultradelgado con procesador i7 de última generación. Ideal para trabajo y diseño.", rating: 4.7, category: 'tecnologia' },
+                { id: 201, name: "Laptop Ultrabook X1 (16GB RAM)", price: 600.00, originalPrice: 999.00, discount: "20% OFF", img: "https://i0.wp.com/cemco.com.ec/wp-content/uploads/2025/10/thinkpad-x1-carbon-g12-21kc00c3lm-frontal-14-wuxga-ips-400nits-low-power-ultra7-155u-32gb-lpddr5x-1tb-pcie4-win11-pro-dual-tb4-1kg.webp?fit=600%2C600&ssl=1", description: "Portátil ultradelgado con procesador i7 de última generación. Ideal para trabajo y diseño.", rating: 4.7, category: 'tecnologia' },
                 { id: 202, name: "Audífonos Inalámbricos Pro", price: 59.99, img: "https://elbarbaro.ec/wp-content/uploads/2020/07/640x640-AIRPODS-PRO.jpg", description: "Cancelación de ruido activa, 30 horas de reproducción y estuche de carga rápida.", rating: 4.5, category: 'tecnologia', colors: ['#000000', '#f5f5f5', '#00bcd4'] },
                 { id: 203, name: "Smartwatch Deportivo V3", price: 89.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPmk1rROWC_yutW3s_yOe8UIF3P4wcGJDDGw&s", description: "Monitor de ritmo cardíaco, GPS integrado y resistencia al agua 5 ATM.", rating: 4.3, category: 'tecnologia' },
                 { id: 204, name: "Teclado Mecánico RGB", price: 75.00, img: "https://m.media-amazon.com/images/I/71KBeJ1nz6L._AC_SL1500_.jpg", description: "Teclado mecánico con switches táctiles y retroiluminación RGB personalizable.", rating: 4.8, category: 'tecnologia' },
@@ -1849,3 +1849,4 @@
     </script>
 </body>
 </html>
+
